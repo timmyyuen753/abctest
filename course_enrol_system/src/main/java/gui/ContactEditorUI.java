@@ -5,10 +5,13 @@
  */
 package gui;
 
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 /**
  *
  * @author Timmy
  */
+@SpringBootApplication
 public class ContactEditorUI extends javax.swing.JFrame {
 
     /**
@@ -152,7 +155,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         cbox_crouselv.setName("cbox_crouselv"); // NOI18N
 
         jList1.setBackground(new java.awt.Color(204, 204, 255));
-        jList1.setFont(new java.awt.Font("?–°ç´°æ?Žé??", 0, 14)); // NOI18N
+        jList1.setFont(new java.awt.Font("?ï¿½ï¿½ç´°ï¿½?ï¿½ï¿½??", 0, 14)); // NOI18N
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
