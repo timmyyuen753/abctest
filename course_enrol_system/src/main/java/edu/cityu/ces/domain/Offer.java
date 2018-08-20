@@ -1,4 +1,4 @@
-package domain;
+package edu.cityu.ces.domain;
 
 public class Offer {
 	

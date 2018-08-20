@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui;
+package edu.cityu.ces.gui;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -65,7 +65,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
         topbar_panel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         topbar_panel.setName("topbar_panel"); // NOI18N
 
-        cityu_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/image/cityu.png"))); // NOI18N
+        cityu_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/cityu/ces/gui/image/cityu.png"))); // NOI18N
         cityu_icon.setName("cityu_icon"); // NOI18N
 
         lbl_account.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
