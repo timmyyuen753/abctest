@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Department {
 	
 	@Id
-	private long id;
+	private String id;
 	
 	@Indexed(unique = true)
 	private String deptID;
@@ -15,7 +15,6 @@ public class Department {
 	private String deptName;
 	
 	private String location;
-	
 	
     public Department() {}
 
@@ -32,11 +31,11 @@ public class Department {
                 deptID, deptName, location);
     }
 
-	public long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

@@ -4,9 +4,9 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import edu.cityu.ces.domain.Student;
 
-public interface StudentRepository extends MongoRepository<Student, Long> {
+public interface StudentRepository extends MongoRepository<Student, String> {
 	
 	Student findByStudentID(String studentID);
 	
-	Student findByStuName(String stuName);
+	Student findByStudentName(String studentName);
 }

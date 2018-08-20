@@ -8,12 +8,12 @@ import org.springframework.data.mongodb.core.index.Indexed;
 public class Student {
 	
 	@Id
-	private long id;
+	private String id;
 	
 	@Indexed(unique = true)
 	private String studentID;
 	
-	private String stuName;
+	private String studentName;
 	
 	private Date dob;
 	
@@ -21,18 +21,18 @@ public class Student {
 	
 	public Student() {}
 	
-	public Student(String studentID, String stuName, Date dob, Enrolled[] enrolled) {
+	public Student(String studentID, String studentName, Date dob, Enrolled[] enrolled) {
 		this.studentID = studentID;
-		this.stuName = stuName;
+		this.studentName = studentName;
 		this.dob = dob;
 		this.enrolled = enrolled;
 	}
 
-	public long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -45,11 +45,11 @@ public class Student {
 	}
 
 	public String getStuName() {
-		return stuName;
+		return studentName;
 	}
 
-	public void setStuName(String stuName) {
-		this.stuName = stuName;
+	public void setStuName(String studentName) {
+		this.studentName = studentName;
 	}
 
 	public Date getDob() {
