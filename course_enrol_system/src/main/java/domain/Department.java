@@ -25,4 +25,28 @@ public class Department {
                 "Department[deptID=%s, deptName='%s', location='%s']",
                 deptID, deptName, location);
     }
+
+	public String getDeptID() {
+		return deptID;
+	}
+
+	public void setDeptID(String deptID) {
+		this.deptID = deptID;
+	}
+
+	public String getDeptName() {
+		return deptName;
+	}
+
+	public void setDeptName(String deptName) {
+		this.deptName = deptName;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
 }
