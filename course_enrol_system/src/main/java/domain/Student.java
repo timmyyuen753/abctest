@@ -3,10 +3,14 @@ package domain;
 import java.util.Date;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 
 public class Student {
 	
 	@Id
+	private long id;
+	
+	@Indexed(unique = true)
 	private String studentID;
 	
 	private String stuName;
@@ -17,10 +21,19 @@ public class Student {
 	
 	public Student() {}
 	
-	public Student(String stuName, Date dob, Enrolled[] enrolled) {
+	public Student(String studentID, String stuName, Date dob, Enrolled[] enrolled) {
+		this.studentID = studentID;
 		this.stuName = stuName;
 		this.dob = dob;
 		this.enrolled = enrolled;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getStudentID() {

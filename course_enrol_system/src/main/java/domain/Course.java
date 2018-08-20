@@ -1,10 +1,14 @@
 package domain;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 
 public class Course {
 	
 	@Id
+	private long id;
+	
+	@Indexed(unique = true)
 	private String courseID;
 	
 	private String deptID;
@@ -17,11 +21,20 @@ public class Course {
 	
 	public Course() {}
 	
-	public Course(String deptID, String title, String level, Offer offer) {
+	public Course(String courseID, String deptID, String title, String level, Offer offer) {
+		this.courseID = courseID;
 		this.deptID = deptID;
 		this.title = title;
 		this.level = level;
 		this.offer = offer;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getCourseID() {

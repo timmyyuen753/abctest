@@ -1,10 +1,14 @@
 package domain;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 
 public class Department {
 	
 	@Id
+	private long id;
+	
+	@Indexed(unique = true)
 	private String deptID;
 	
 	private String deptName;
@@ -14,7 +18,8 @@ public class Department {
 	
     public Department() {}
 
-    public Department(String deptName, String location) {
+    public Department(String deptID, String deptName, String location) {
+    	this.deptID = deptID;
         this.deptName = deptName;
         this.location = location;
     }
@@ -25,6 +30,14 @@ public class Department {
                 "Department[deptID=%s, deptName='%s', location='%s']",
                 deptID, deptName, location);
     }
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	public String getDeptID() {
 		return deptID;
