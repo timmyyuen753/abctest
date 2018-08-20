@@ -27,6 +27,12 @@ public class Student {
 		this.dob = dob;
 		this.enrolled = enrolled;
 	}
+	
+	public String toString() {
+        return String.format(
+                "Student[studentID=%s, studentName='%s', dob='%s']",
+                studentID, studentName, dob);
+    }
 
 	public String getId() {
 		return id;

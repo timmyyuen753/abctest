@@ -7,20 +7,19 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import edu.cityu.ces.SpringMongoConfiguration;
-import edu.cityu.ces.dao.DepartmentRepository;
-import edu.cityu.ces.domain.Department;
+import edu.cityu.ces.domain.Course;
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes={SpringMongoConfiguration.class})
-public class TestDepartmentRepository {
+public class TestCourseRepository {
 	
 	@Autowired
-	DepartmentRepository repository;
+	CourseRepository repository;
 
 	@Test
-	public void testFindByDeptId() {
-		Department department = repository.findByDeptID("CS");
+	public void testFindByCourseId() {
+		Course course = repository.findByCourseID("CS101");
 		
-		System.out.println("Department = " + department.toString());
+		System.out.println("Course = " + course.toString());
 	}
 }

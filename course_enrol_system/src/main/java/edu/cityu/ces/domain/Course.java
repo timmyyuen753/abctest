@@ -29,6 +29,13 @@ public class Course {
 		this.level = level;
 		this.offer = offer;
 	}
+	
+    @Override
+    public String toString() {
+        return String.format(
+                "Course[courseID=%s, deptID='%s', title='%s', level='%s]",
+                courseID, deptID, title, level);
+    }
 
 	public String getId() {
 		return id;
