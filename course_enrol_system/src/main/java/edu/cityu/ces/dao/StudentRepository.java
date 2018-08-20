@@ -6,7 +6,7 @@ import edu.cityu.ces.domain.Student;
 
 public interface StudentRepository extends MongoRepository<Student, Long> {
 	
-	Student findByStudentId(String studentID);
+	Student findByStudentID(String studentID);
 	
-	Student findByStudentName(String stuName);
+	Student findByStuName(String stuName);
 }

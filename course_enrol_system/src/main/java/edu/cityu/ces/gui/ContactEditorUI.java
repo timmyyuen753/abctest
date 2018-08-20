@@ -5,7 +5,11 @@
  */
 package edu.cityu.ces.gui;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import edu.cityu.ces.SpringMongoConfiguration;
+import edu.cityu.ces.dao.DepartmentRepository;
 
 /**
  *
@@ -13,6 +17,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 public class ContactEditorUI extends javax.swing.JFrame {
+	
+	@Autowired
+	private DepartmentRepository repository;
 
     /**
      * Creates new form ContactEditorUI

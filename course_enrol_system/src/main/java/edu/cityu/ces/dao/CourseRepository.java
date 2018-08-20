@@ -6,9 +6,9 @@ import edu.cityu.ces.domain.Course;
 
 public interface CourseRepository extends MongoRepository<Course, Long> {
 	
-	Course findByCourseId(String courseID);
+	Course findByCourseID(String courseID);
 	
-	Course findByDepartmentId(String deptID);
+	Course findByDeptID(String deptID);
 	
 	Course findByTitle(String title);
 	
