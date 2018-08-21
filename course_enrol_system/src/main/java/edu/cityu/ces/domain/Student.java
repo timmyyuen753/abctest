@@ -33,6 +33,13 @@ public class Student {
                 "Student[studentID=%s, studentName='%s', dob='%s']",
                 studentID, studentName, dob);
     }
+	
+	public void clone(Student student) {
+		this.studentID = student.getStudentID();
+		this.studentName = student.getStuName();
+		this.dob = student.getDob();
+		this.enrolled = student.getEnrolled();
+	}
 
 	public String getId() {
 		return id;

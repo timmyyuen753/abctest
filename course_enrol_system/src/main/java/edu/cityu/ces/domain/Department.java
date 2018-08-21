@@ -30,6 +30,12 @@ public class Department {
                 "Department[deptID=%s, deptName='%s', location='%s']",
                 deptID, deptName, location);
     }
+    
+    public void clone(Department department) {
+    	this.deptID = department.getDeptID();
+        this.deptName = department.getDeptName();
+        this.location = department.getLocation();
+    }
 
 	public String getId() {
 		return id;

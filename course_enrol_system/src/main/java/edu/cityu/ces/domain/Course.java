@@ -36,6 +36,14 @@ public class Course {
                 "Course[courseID=%s, deptID='%s', title='%s', level='%s]",
                 courseID, deptID, title, level);
     }
+    
+    public void clone(Course course) {
+    	this.courseID = course.getCourseID();
+		this.deptID = course.getDeptID();
+		this.title = course.getTitle();
+		this.level = course.getLevel();
+		this.offer = course.getOffer();
+    }
 
 	public String getId() {
 		return id;
