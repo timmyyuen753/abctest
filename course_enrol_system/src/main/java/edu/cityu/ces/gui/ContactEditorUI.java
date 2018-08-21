@@ -5,24 +5,16 @@
  */
 package edu.cityu.ces.gui;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import edu.cityu.ces.SpringMongoConfiguration;
-import edu.cityu.ces.dao.DepartmentRepository;
+import java.awt.CardLayout;
 
 /**
  *
  * @author Timmy
  */
-@SpringBootApplication
 public class ContactEditorUI extends javax.swing.JFrame {
-	
-	@Autowired
-	private DepartmentRepository repository;
 
     /**
-     * Creates new form ContactEditorUI
+     * Creates new form MainFrame
      */
     public ContactEditorUI() {
         initComponents();
@@ -37,312 +29,150 @@ public class ContactEditorUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        topbar_panel = new javax.swing.JPanel();
-        cityu_icon = new javax.swing.JLabel();
-        lbl_account = new javax.swing.JLabel();
-        accountbox = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
-        student_panel1 = new javax.swing.JPanel();
-        lbl_studentname = new javax.swing.JLabel();
-        text_studentname = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
-        lbl_crousetitle = new javax.swing.JLabel();
-        crousetitle_cbox = new javax.swing.JComboBox<>();
-        lbl_crouselv = new javax.swing.JLabel();
-        cbox_crouselv = new javax.swing.JComboBox<>();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        lbl_crouseyear = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        lbl_department = new javax.swing.JLabel();
-        cbox_department = new javax.swing.JComboBox<>();
-        lbl_deptlocatiion = new javax.swing.JLabel();
-        cbox_deptlocation = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
-        btn_add = new javax.swing.JButton();
-        btn_update = new javax.swing.JButton();
-        btn_delete = new javax.swing.JButton();
-        btn_search = new javax.swing.JButton();
-        btn_list = new javax.swing.JButton();
+        btn_Student = new javax.swing.JButton();
+        btn_Course = new javax.swing.JButton();
+        btn_Department = new javax.swing.JButton();
+        btn_Searchinfo = new javax.swing.JButton();
+        lbl_systemname = new javax.swing.JLabel();
+        mainPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1024, 720));
 
-        topbar_panel.setBackground(new java.awt.Color(204, 204, 255));
-        topbar_panel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        topbar_panel.setName("topbar_panel"); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
 
-        cityu_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/cityu/ces/gui/image/cityu.png"))); // NOI18N
-        cityu_icon.setName("cityu_icon"); // NOI18N
-
-        lbl_account.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
-        lbl_account.setText("Account:");
-        lbl_account.setName("lbl_account"); // NOI18N
-
-        accountbox.setBackground(new java.awt.Color(204, 204, 255));
-        accountbox.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        accountbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Choose...", "Student", "Admin" }));
-        accountbox.setName("accountbox"); // NOI18N
-        accountbox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                accountboxActionPerformed(evt);
+        btn_Student.setBackground(new java.awt.Color(0, 153, 204));
+        btn_Student.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 24)); // NOI18N
+        btn_Student.setForeground(new java.awt.Color(255, 255, 255));
+        btn_Student.setText("Student");
+        btn_Student.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.green, new java.awt.Color(0, 204, 204), java.awt.Color.green, new java.awt.Color(204, 204, 255)));
+        btn_Student.setName("btn_Student"); // NOI18N
+        btn_Student.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_StudentMouseClicked(evt);
             }
         });
 
-        javax.swing.GroupLayout topbar_panelLayout = new javax.swing.GroupLayout(topbar_panel);
-        topbar_panel.setLayout(topbar_panelLayout);
-        topbar_panelLayout.setHorizontalGroup(
-            topbar_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(topbar_panelLayout.createSequentialGroup()
-                .addComponent(cityu_icon)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lbl_account)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(accountbox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        topbar_panelLayout.setVerticalGroup(
-            topbar_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(cityu_icon)
-            .addGroup(topbar_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(lbl_account)
-                .addComponent(accountbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        student_panel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Student", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 3, 24), new java.awt.Color(255, 51, 0))); // NOI18N
-        student_panel1.setName("student_panel1"); // NOI18N
-
-        lbl_studentname.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        lbl_studentname.setText("Name:");
-        lbl_studentname.setName("lbl_studentname"); // NOI18N
-
-        text_studentname.setBackground(new java.awt.Color(255, 204, 204));
-        text_studentname.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        text_studentname.setName("text_studentname"); // NOI18N
-
-        javax.swing.GroupLayout student_panel1Layout = new javax.swing.GroupLayout(student_panel1);
-        student_panel1.setLayout(student_panel1Layout);
-        student_panel1Layout.setHorizontalGroup(
-            student_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(student_panel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbl_studentname)
-                .addGap(18, 18, 18)
-                .addComponent(text_studentname, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        student_panel1Layout.setVerticalGroup(
-            student_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(student_panel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(student_panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_studentname)
-                    .addComponent(text_studentname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(119, Short.MAX_VALUE))
-        );
-
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Crouse", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 3, 24), new java.awt.Color(255, 51, 0))); // NOI18N
-
-        lbl_crousetitle.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        lbl_crousetitle.setText("Title :");
-        lbl_crousetitle.setName("lbl_crousetitle"); // NOI18N
-
-        crousetitle_cbox.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        crousetitle_cbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        crousetitle_cbox.setName("crousetitle_cbox"); // NOI18N
-
-        lbl_crouselv.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        lbl_crouselv.setText("Level :");
-        lbl_crouselv.setName("lbl_crouselv"); // NOI18N
-
-        cbox_crouselv.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        cbox_crouselv.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6" }));
-        cbox_crouselv.setName("cbox_crouselv"); // NOI18N
-
-        jList1.setBackground(new java.awt.Color(204, 204, 255));
-        jList1.setFont(new java.awt.Font("?��細�?��??", 0, 14)); // NOI18N
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        btn_Course.setBackground(new java.awt.Color(0, 153, 204));
+        btn_Course.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 24)); // NOI18N
+        btn_Course.setForeground(new java.awt.Color(255, 255, 255));
+        btn_Course.setText("Course");
+        btn_Course.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.green, new java.awt.Color(0, 204, 204), java.awt.Color.green, new java.awt.Color(204, 204, 255)));
+        btn_Course.setName("btn_Course"); // NOI18N
+        btn_Course.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_CourseMouseClicked(evt);
+            }
         });
-        jScrollPane1.setViewportView(jList1);
 
-        lbl_crouseyear.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        lbl_crouseyear.setText("Year :");
-        lbl_crouseyear.setName("lbl_crouseyear"); // NOI18N
+        btn_Department.setBackground(new java.awt.Color(0, 153, 204));
+        btn_Department.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 24)); // NOI18N
+        btn_Department.setForeground(new java.awt.Color(255, 255, 255));
+        btn_Department.setText("Department");
+        btn_Department.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.green, new java.awt.Color(0, 153, 153), java.awt.Color.green, new java.awt.Color(204, 204, 255)));
+        btn_Department.setName("Department"); // NOI18N
+        btn_Department.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_DepartmentMouseClicked(evt);
+            }
+        });
 
-        jComboBox2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2016", "2017" }));
+        btn_Searchinfo.setBackground(new java.awt.Color(0, 153, 204));
+        btn_Searchinfo.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 24)); // NOI18N
+        btn_Searchinfo.setForeground(new java.awt.Color(255, 255, 255));
+        btn_Searchinfo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.green, new java.awt.Color(0, 153, 153), java.awt.Color.green, new java.awt.Color(204, 204, 255)));
+        btn_Searchinfo.setLabel("Search info");
+        btn_Searchinfo.setName("btn_Searchinfo"); // NOI18N
+        btn_Searchinfo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_SearchinfoMouseClicked(evt);
+            }
+        });
 
-        lbl_department.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        lbl_department.setText("Department :");
-        lbl_department.setName("lbl_department"); // NOI18N
-
-        cbox_department.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        cbox_department.setName("cbox_department"); // NOI18N
-
-        lbl_deptlocatiion.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        lbl_deptlocatiion.setText("Department_location :");
-        lbl_deptlocatiion.setName("lbl_deptlocatiion"); // NOI18N
-
-        cbox_deptlocation.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        cbox_deptlocation.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cbox_deptlocation.setName("cbox_deptlocation"); // NOI18N
-
-        jButton1.setBackground(new java.awt.Color(204, 255, 204));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jButton1.setText("Create");
-        jButton1.setName("btn_create"); // NOI18N
-
-        btn_add.setBackground(new java.awt.Color(204, 255, 204));
-        btn_add.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        btn_add.setText("Add");
-        btn_add.setName("btn_add"); // NOI18N
-
-        btn_update.setBackground(new java.awt.Color(204, 255, 204));
-        btn_update.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        btn_update.setText("Update");
-        btn_update.setName("btn_update"); // NOI18N
-
-        btn_delete.setBackground(new java.awt.Color(204, 255, 204));
-        btn_delete.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        btn_delete.setText("Delete");
-        btn_delete.setName("btn_delete"); // NOI18N
-
-        btn_search.setBackground(new java.awt.Color(204, 255, 204));
-        btn_search.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        btn_search.setText("Search");
-        btn_search.setName("btn_search"); // NOI18N
-
-        btn_list.setBackground(new java.awt.Color(204, 255, 204));
-        btn_list.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        btn_list.setText("List");
-        btn_list.setName("btn_list"); // NOI18N
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1083, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_update, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_add, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_search, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_list, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(lbl_crousetitle)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(crousetitle_cbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(104, 104, 104)
-                                .addComponent(lbl_crouselv)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cbox_crouselv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(112, 112, 112)
-                                .addComponent(lbl_crouseyear)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(lbl_department)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cbox_department, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(198, 198, 198)
-                                .addComponent(lbl_deptlocatiion)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cbox_deptlocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(95, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_crousetitle)
-                    .addComponent(crousetitle_cbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_crouselv)
-                    .addComponent(cbox_crouselv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_crouseyear)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_department)
-                    .addComponent(cbox_department, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl_deptlocatiion)
-                    .addComponent(cbox_deptlocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(50, 50, 50)
-                        .addComponent(btn_add)
-                        .addGap(56, 56, 56)
-                        .addComponent(btn_update)
-                        .addGap(57, 57, 57)
-                        .addComponent(btn_delete)
-                        .addGap(58, 58, 58)
-                        .addComponent(btn_search)
-                        .addGap(59, 59, 59)
-                        .addComponent(btn_list)
-                        .addGap(0, 246, Short.MAX_VALUE))))
-        );
+        lbl_systemname.setFont(new java.awt.Font("STCaiyun", 1, 48)); // NOI18N
+        lbl_systemname.setForeground(new java.awt.Color(255, 0, 0));
+        lbl_systemname.setText("Course Enrol SYSTEM");
+        lbl_systemname.setName("lbl_systemname"); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(192, 192, 192)
+                .addComponent(btn_Student, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(btn_Course, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(btn_Department, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(btn_Searchinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(student_panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_systemname)
+                .addGap(110, 110, 110))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(student_panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(12, 12, 12)
+                .addComponent(lbl_systemname)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_Course, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_Student, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_Department, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_Searchinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        mainPanel.setName("mainPanel"); // NOI18N
+        mainPanel.setLayout(new java.awt.CardLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(topbar_panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(topbar_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void accountboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountboxActionPerformed
+    private void btn_StudentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_StudentMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_accountboxActionPerformed
+        mainPanel.add(new Student_Panel(),"student_panel");
+    }//GEN-LAST:event_btn_StudentMouseClicked
+
+    private void btn_CourseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CourseMouseClicked
+        // TODO add your handling code here:
+        mainPanel.add(new Course_Panel(),"course_panel");
+    }//GEN-LAST:event_btn_CourseMouseClicked
+
+    private void btn_DepartmentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DepartmentMouseClicked
+        // TODO add your handling code here:
+        mainPanel.add(new Department_Panel(),"department_panel");
+    }//GEN-LAST:event_btn_DepartmentMouseClicked
+
+    private void btn_SearchinfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SearchinfoMouseClicked
+        // TODO add your handling code here:
+        mainPanel.add(new Search_Panel(),"search_panel");
+    }//GEN-LAST:event_btn_SearchinfoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -370,6 +200,7 @@ public class ContactEditorUI extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(ContactEditorUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -380,32 +211,12 @@ public class ContactEditorUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> accountbox;
-    private javax.swing.JButton btn_add;
-    private javax.swing.JButton btn_delete;
-    private javax.swing.JButton btn_list;
-    private javax.swing.JButton btn_search;
-    private javax.swing.JButton btn_update;
-    private javax.swing.JComboBox<String> cbox_crouselv;
-    private javax.swing.JComboBox<String> cbox_department;
-    private javax.swing.JComboBox<String> cbox_deptlocation;
-    private javax.swing.JLabel cityu_icon;
-    private javax.swing.JComboBox<String> crousetitle_cbox;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JList<String> jList1;
+    private javax.swing.JButton btn_Course;
+    private javax.swing.JButton btn_Department;
+    private javax.swing.JButton btn_Searchinfo;
+    private javax.swing.JButton btn_Student;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lbl_account;
-    private javax.swing.JLabel lbl_crouselv;
-    private javax.swing.JLabel lbl_crousetitle;
-    private javax.swing.JLabel lbl_crouseyear;
-    private javax.swing.JLabel lbl_department;
-    private javax.swing.JLabel lbl_deptlocatiion;
-    private javax.swing.JLabel lbl_studentname;
-    private javax.swing.JPanel student_panel1;
-    private javax.swing.JTextField text_studentname;
-    private javax.swing.JPanel topbar_panel;
+    private javax.swing.JLabel lbl_systemname;
+    private javax.swing.JPanel mainPanel;
     // End of variables declaration//GEN-END:variables
 }
