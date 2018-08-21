@@ -69,7 +69,7 @@ public class Student_Panel extends javax.swing.JPanel {
         text_newstudentname.setName("text_newstudentname"); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel1.setText("Day of Born:");
+        jLabel1.setText("Date of Birth:");
 
         btn_addstudent.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         btn_addstudent.setForeground(new java.awt.Color(0, 204, 204));
@@ -120,7 +120,7 @@ public class Student_Panel extends javax.swing.JPanel {
         jLabel2.setText("Name:");
 
         jLabel3.setFont(new java.awt.Font("新細明體", 0, 14)); // NOI18N
-        jLabel3.setText("Day of Born:");
+        jLabel3.setText("Date of Birth:");
 
         btn_stud_update.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         btn_stud_update.setForeground(new java.awt.Color(0, 204, 204));

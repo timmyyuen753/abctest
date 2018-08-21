@@ -1,5 +1,6 @@
 package edu.cityu.ces.dao;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +23,39 @@ public class TestDepartmentRepository {
 		Department department = repository.findByDeptID("CS");
 		
 		System.out.println("Department = " + department.toString());
+	}
+	
+	@Test
+	public void testInsertDepartment() {
+		Department inDept = new Department("MGT", "Management", "Room 11-200, 11/F Lau Ming Wai Academic Building");
+		
+		repository.save(inDept);
+		
+		Department outDept = repository.findByDeptID("MGT");
+		
+		System.out.println("Department = " + outDept.toString());
+	}
+	
+	@Test
+	public void testUpdateDepartment() {
+		Department department = repository.findByDeptID("MGT");
+		
+		department.setLocation("Room 10-100, 10/F Lau Ming Wai Academic Building");
+		
+		repository.save(department);
+		
+		Department outDept = repository.findByDeptID("MGT");
+		
+		System.out.println("Department = " + outDept.toString());
+	}
+	
+	@Test
+	public void testDeleteDepartment() {
+		Department department = repository.findByDeptID("MGT");
+		repository.delete(department);
+		
+		Department outDept = repository.findByDeptID("MGT");
+		
+		Assert.assertNull(outDept);
 	}
 }

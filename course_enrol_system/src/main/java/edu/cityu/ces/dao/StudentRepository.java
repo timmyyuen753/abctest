@@ -1,12 +1,14 @@
 package edu.cityu.ces.dao;
 
+import java.util.List;
+
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import edu.cityu.ces.domain.Student;
 
 public interface StudentRepository extends MongoRepository<Student, String> {
 	
-	Student findByStudentID(String studentID);
+	public Student findByStudentID(String studentID);
 	
-	Student findByStudentName(String studentName);
+	public List<Student> findByStudentName(String studentName);
 }
