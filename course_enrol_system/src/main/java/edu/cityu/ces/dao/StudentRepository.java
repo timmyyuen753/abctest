@@ -14,6 +14,7 @@ public interface StudentRepository extends MongoRepository<Student, String> {
 	
 	public List<Student> findByStudentName(String studentName);
 	
-	@Query("{studentID: $0, enrolled: {year: ?1, courseID: ?2}}")
-	public List<Enrolled> findEnrolledCourse(String studentID, String year, String courseID);
+	
+	//@Query("{studentID: $0, enrolled: {year: ?1, courseID: ?2}}")
+	//public List<Enrolled> findEnrolledCourse(String studentID, String year, String courseID);
 }

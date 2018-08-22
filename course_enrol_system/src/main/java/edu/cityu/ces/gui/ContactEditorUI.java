@@ -7,11 +7,19 @@ package edu.cityu.ces.gui;
 
 import java.awt.CardLayout;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+
+import edu.cityu.ces.manager.CourseEnrollmentManager;
+
 /**
  *
  * @author Timmy
  */
 public class ContactEditorUI extends javax.swing.JFrame {
+	
+	@Autowired
+	private CourseEnrollmentManager courseEnrollmentManager;
 
     /**
      * Creates new form MainFrame
@@ -178,6 +186,8 @@ public class ContactEditorUI extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+    	SpringApplication.run(ContactEditorUI.class, args);
+    	
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

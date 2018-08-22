@@ -16,7 +16,7 @@ import edu.cityu.ces.domain.Department;
 public class TestDepartmentRepository {
 	
 	@Autowired
-	DepartmentRepository repository;
+	private DepartmentRepository repository;
 
 	@Test
 	public void testFindByDeptId() {
