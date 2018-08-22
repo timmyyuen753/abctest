@@ -1,5 +1,9 @@
 package edu.cityu.ces.manager.impl;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +13,7 @@ import edu.cityu.ces.dao.DepartmentRepository;
 import edu.cityu.ces.dao.StudentRepository;
 import edu.cityu.ces.domain.Course;
 import edu.cityu.ces.domain.Department;
+import edu.cityu.ces.domain.Enrolled;
 import edu.cityu.ces.domain.Student;
 import edu.cityu.ces.manager.CourseEnrollmentManager;
 
@@ -116,8 +121,60 @@ public class CourseEnrollmentManagerImpl implements CourseEnrollmentManager {
 
 	@Override
 	public void enrollCourse(String courseID, String year, String studentID) {
-		Course course = courseRepository.findByCourseID(courseID);
-		Student student = studentRepository.findByStudentID(studentID);
+		Student enrolledStudent = studentRepository.findByStudentIdAndEnrolledCourse(studentID, year, courseID);
 		
+		if (enrolledStudent == null) {
+			Course course = courseRepository.findByCourseID(courseID);
+			Student student = studentRepository.findByStudentID(studentID);
+			if (course == null) {
+				System.out.println("The course does not exist!");
+			} else if (student == null) {
+				System.out.println("The student does not exist!");
+			} else {
+				int availablePlaces = course.getOffer().getAvailablePlaces();
+				int numOfEnrolledStudent = course.getOffer().getNumOfEnrolStud();
+				course.getOffer().setAvailablePlaces(availablePlaces - 1);
+				course.getOffer().setNumOfEnrolStud(numOfEnrolledStudent + 1);
+				
+				List<Enrolled> enrolledList = student.getEnrolled();
+				enrolledList.add(new Enrolled(year, courseID, new Date()));
+				student.setEnrolled(enrolledList);
+				
+				courseRepository.save(course);
+				studentRepository.save(student);
+			}
+		} else {
+			System.out.println("This student is already enrolled in this course!");
+		}
+	}
+
+	@Override
+	public void dropCourse(String courseID, String year, String studentID) {
+		Student enrolledStudent = studentRepository.findByStudentIdAndEnrolledCourse(studentID, year, courseID);
+		
+		if (enrolledStudent != null) {
+			Course course = courseRepository.findByCourseID(courseID);
+			Student student = studentRepository.findByStudentID(studentID);
+			
+			int availablePlaces = course.getOffer().getAvailablePlaces();
+			int numOfEnrolledStudent = course.getOffer().getNumOfEnrolStud();
+			course.getOffer().setAvailablePlaces(availablePlaces + 1);
+			course.getOffer().setNumOfEnrolStud(numOfEnrolledStudent - 1);
+			
+			List<Enrolled> enrolledList = student.getEnrolled();
+			for (Iterator<Enrolled> iter = enrolledList.listIterator(); iter.hasNext();) {
+				Enrolled enrolled = iter.next();
+				if (enrolled.getCourseID().equalsIgnoreCase(courseID) && enrolled.getYear().equalsIgnoreCase(year)) {
+					iter.remove();
+					break;
+				}
+			}
+			student.setEnrolled(enrolledList);
+			
+			courseRepository.save(course);
+			studentRepository.save(student);
+		} else {
+			System.out.println("This student is not enrolled in this course!");
+		}
 	}
 }

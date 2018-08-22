@@ -18,6 +18,12 @@ public class Offer {
         this.availablePlaces = availablePlaces;
         this.numOfEnrolStud = numOfEnrolStud;
     }
+    
+    public String toString() {
+        return String.format(
+                "Offer[year=%s, classSize='%s', availablePlaces='%s', numOfEnrolStud='%s']",
+                year, classSize, availablePlaces, numOfEnrolStud);
+    }
 
 	public String getYear() {
 		return year;

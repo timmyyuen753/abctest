@@ -43,5 +43,6 @@ public interface CourseEnrollmentManager {
 	public List<Student> findStudentByStudentName(String studentName);
 	
 	public void enrollCourse(String courseID, String year, String studentID);
-
+	
+	public void dropCourse(String courseID, String year, String studentID);
 }

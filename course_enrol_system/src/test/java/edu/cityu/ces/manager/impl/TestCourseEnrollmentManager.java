@@ -33,4 +33,14 @@ public class TestCourseEnrollmentManager {
 		courseEnrollmentManager.deleteDepartment(newDepartment);;
 		System.out.println("Deleted Department = " + newDepartment.toString());
 	}
+	
+	@Test
+	public void testEnrollCourse() {
+		courseEnrollmentManager.enrollCourse("IS101", "2016", "12340008");
+	}
+	
+	@Test
+	public void testDropCourse() {
+		courseEnrollmentManager.dropCourse("IS101", "2016", "12340008");
+	}
 }

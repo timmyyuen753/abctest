@@ -17,6 +17,12 @@ public class Enrolled {
 		this.courseID = courseID;
 		this.enrollDate = enrollDate;
 	}
+	
+	public String toString() {
+        return String.format(
+                "Enrolled[year=%s, courseID='%s', enrollDate='%s']",
+                year, courseID, enrollDate);
+    }
 
 	public String getYear() {
 		return year;

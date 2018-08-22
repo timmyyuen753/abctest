@@ -1,6 +1,7 @@
 package edu.cityu.ces.domain;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -17,11 +18,11 @@ public class Student {
 	
 	private Date dob;
 	
-	private Enrolled[] enrolled;
+	private List<Enrolled> enrolled;
 	
 	public Student() {}
 	
-	public Student(String studentID, String studentName, Date dob, Enrolled[] enrolled) {
+	public Student(String studentID, String studentName, Date dob, List<Enrolled> enrolled) {
 		this.studentID = studentID;
 		this.studentName = studentName;
 		this.dob = dob;
@@ -73,11 +74,11 @@ public class Student {
 		this.dob = dob;
 	}
 
-	public Enrolled[] getEnrolled() {
+	public List<Enrolled> getEnrolled() {
 		return enrolled;
 	}
 
-	public void setEnrolled(Enrolled[] enrolled) {
+	public void setEnrolled(List<Enrolled> enrolled) {
 		this.enrolled = enrolled;
 	}
 }
