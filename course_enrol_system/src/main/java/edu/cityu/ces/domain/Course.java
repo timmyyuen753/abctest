@@ -1,5 +1,9 @@
 package edu.cityu.ces.domain;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -18,11 +22,11 @@ public class Course {
 	
 	private String level;
 	
-	private Offer offer;
+	private List<Offer> offer;
 	
 	public Course() {}
 	
-	public Course(String courseID, String deptID, String title, String level, Offer offer) {
+	public Course(String courseID, String deptID, String title, String level, List<Offer> offer) {
 		this.courseID = courseID;
 		this.deptID = deptID;
 		this.title = title;
@@ -43,6 +47,28 @@ public class Course {
 		this.title = course.getTitle();
 		this.level = course.getLevel();
 		this.offer = course.getOffer();
+    }
+    
+    public Offer getCurrentYearOffer() {
+    	Calendar calendar = Calendar.getInstance();
+    	calendar.setTime(new Date());
+    	int currentYear = calendar.get(Calendar.YEAR);
+    	for (Offer off : this.offer) {
+    		if (Integer.parseInt(off.getYear()) == currentYear) {
+    			return off;
+    		}
+    	}
+    	
+    	return null;
+    }
+    
+    public void updateOffer(Offer updatedOffer) {
+    	for (Offer off : this.offer) {
+    		if (off.getYear().equalsIgnoreCase(updatedOffer.getYear())) {
+    			off = updatedOffer;
+    			break;
+    		}
+    	}
     }
 
 	public String getId() {
@@ -85,11 +111,11 @@ public class Course {
 		this.level = level;
 	}
 
-	public Offer getOffer() {
+	public List<Offer> getOffer() {
 		return offer;
 	}
 
-	public void setOffer(Offer offer) {
+	public void setOffer(List<Offer> offer) {
 		this.offer = offer;
 	}
 }

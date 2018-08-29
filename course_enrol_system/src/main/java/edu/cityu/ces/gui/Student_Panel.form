@@ -5,6 +5,9 @@
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="cc" green="cc" red="ff" type="rgb"/>
     </Property>
+    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+      <Font name="Times New Roman" size="12" style="0"/>
+    </Property>
     <Property name="name" type="java.lang.String" value="student_panel" noResource="true"/>
     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[720, 480]"/>
@@ -29,7 +32,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jPanel2" alignment="1" max="32767" attributes="0"/>
-                  <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
+                  <Component id="newstudent_panel" alignment="1" max="32767" attributes="0"/>
                   <Component id="jPanel5" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -40,18 +43,18 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <Component id="newstudent_panel" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="103" max="32767" attributes="0"/>
+              <EmptySpace pref="89" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="newstudent_panel">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="ff" type="rgb"/>
@@ -64,6 +67,10 @@
             </TitledBorder>
           </Border>
         </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Times New Roman" size="14" style="1"/>
+        </Property>
+        <Property name="name" type="java.lang.String" value="newstudent_panel" noResource="true"/>
       </Properties>
 
       <Layout>
@@ -73,17 +80,17 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="lbl_studentname" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_newstudname" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="text_newstudentname" min="-2" pref="150" max="-2" attributes="0"/>
+                          <Component id="txt_newstudname" min="-2" pref="150" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_newstud_DOB" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="text_nstud_DOB" min="-2" pref="131" max="-2" attributes="0"/>
+                          <Component id="txt_newstud_DOB" min="-2" pref="150" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="btn_addstudent" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="btn_addstud" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="219" max="32767" attributes="0"/>
+                  <EmptySpace pref="200" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -92,28 +99,28 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lbl_studentname" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="text_newstudentname" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="text_nstud_DOB" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbl_newstudname" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_newstudname" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbl_newstud_DOB" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_newstud_DOB" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="10" max="32767" attributes="0"/>
-                  <Component id="btn_addstudent" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="btn_addstud" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lbl_studentname">
+        <Component class="javax.swing.JLabel" name="lbl_newstudname">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Times New Roman" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Name:"/>
-            <Property name="name" type="java.lang.String" value="lbl_studentname" noResource="true"/>
+            <Property name="name" type="java.lang.String" value="lbl_newstudname" noResource="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="text_newstudentname">
+        <Component class="javax.swing.JTextField" name="txt_newstudname">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="ff" red="cc" type="rgb"/>
@@ -121,18 +128,19 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Times New Roman" size="14" style="0"/>
             </Property>
-            <Property name="name" type="java.lang.String" value="text_newstudentname" noResource="true"/>
+            <Property name="name" type="java.lang.String" value="txt_newstudname" noResource="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="lbl_newstud_DOB">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Times New Roman" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Day of Born:"/>
+            <Property name="text" type="java.lang.String" value="Date of Birth:"/>
+            <Property name="name" type="java.lang.String" value="lbl_newstud_DOB" noResource="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btn_addstudent">
+        <Component class="javax.swing.JButton" name="btn_addstud">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Times New Roman" size="14" style="0"/>
@@ -149,19 +157,21 @@
                 </EtchetBorder>
               </Border>
             </Property>
-            <Property name="name" type="java.lang.String" value="btn_addstudent" noResource="true"/>
+            <Property name="name" type="java.lang.String" value="btn_addstud" noResource="true"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_addstudActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="text_nstud_DOB">
+        <Component class="javax.swing.JTextField" name="txt_newstud_DOB">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="ff" red="cc" type="rgb"/>
             </Property>
-            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-              <Format format="dd&apos;/&apos;MM&apos;/&apos;yyyy" subtype="-1" type="1"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="14" style="0"/>
             </Property>
-            <Property name="toolTipText" type="java.lang.String" value=""/>
-            <Property name="name" type="java.lang.String" value="text_nstud_DOB" noResource="true"/>
+            <Property name="name" type="java.lang.String" value="txt_newstud_DOB" noResource="true"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -189,30 +199,30 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="btn_stud_update" min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="btn_updatstud" min="-2" pref="50" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btn_stud_del" min="-2" pref="70" max="-2" attributes="0"/>
+                          <Component id="btn_delstud" min="-2" pref="70" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_studname" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="text_studentname" min="-2" pref="152" max="-2" attributes="0"/>
+                          <Component id="txt_studname" min="-2" pref="152" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_stud_DOB" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="text_stud_DOB" min="-2" pref="131" max="-2" attributes="0"/>
+                          <Component id="txt_stud_DOB" min="-2" pref="131" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_studid" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="txt_ostudentID" max="32767" attributes="0"/>
+                          <Component id="txt_studid" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="221" max="32767" attributes="0"/>
+                  <EmptySpace pref="214" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -221,17 +231,17 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="text_studentname" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txt_ostudentID" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbl_studname" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_studname" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbl_studid" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_studid" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btn_stud_update" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                      <Component id="btn_stud_del" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                      <Component id="text_stud_DOB" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_updatstud" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="btn_delstud" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="txt_stud_DOB" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbl_stud_DOB" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -239,20 +249,25 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Name:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel3">
+        <Component class="javax.swing.JLabel" name="lbl_studname">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="&#x65b0;&#x7d30;&#x660e;&#x9ad4;" size="14" style="0"/>
+              <Font name="Times New Roman" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Day of Born:"/>
+            <Property name="text" type="java.lang.String" value="Name:"/>
+            <Property name="name" type="java.lang.String" value="lbl_studname" noResource="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btn_stud_update">
+        <Component class="javax.swing.JLabel" name="lbl_stud_DOB">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Date of Birth:"/>
+            <Property name="name" type="java.lang.String" value="lbl_stud_DOB" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btn_updatstud">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Times New Roman" size="14" style="0"/>
@@ -269,10 +284,13 @@
                 </EtchetBorder>
               </Border>
             </Property>
-            <Property name="name" type="java.lang.String" value="btn_stud_update" noResource="true"/>
+            <Property name="name" type="java.lang.String" value="btn_updatstud" noResource="true"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_updatstudActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btn_stud_del">
+        <Component class="javax.swing.JButton" name="btn_delstud">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Times New Roman" size="14" style="0"/>
@@ -289,18 +307,21 @@
                 </EtchetBorder>
               </Border>
             </Property>
-            <Property name="name" type="java.lang.String" value="btn_stud_del" noResource="true"/>
+            <Property name="name" type="java.lang.String" value="btn_delstud" noResource="true"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_delstudActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="text_studentname">
+        <Component class="javax.swing.JTextField" name="txt_studname">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="ff" red="cc" type="rgb"/>
             </Property>
-            <Property name="name" type="java.lang.String" value="text_studentname" noResource="true"/>
+            <Property name="name" type="java.lang.String" value="txt_studname" noResource="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="text_stud_DOB">
+        <Component class="javax.swing.JFormattedTextField" name="txt_stud_DOB">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="ff" red="cc" type="rgb"/>
@@ -309,20 +330,24 @@
               <Format format="dd&apos;/&apos;MM&apos;/&apos;yyyy" subtype="-1" type="1"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
-            <Property name="name" type="java.lang.String" value="text_stud_DOB" noResource="true"/>
+            <Property name="name" type="java.lang.String" value="txt_stud_DOB" noResource="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel4">
+        <Component class="javax.swing.JLabel" name="lbl_studid">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="14" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Student ID: "/>
+            <Property name="name" type="java.lang.String" value="lbl_studid" noResource="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txt_ostudentID">
+        <Component class="javax.swing.JTextField" name="txt_studid">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="ff" red="cc" type="rgb"/>
             </Property>
-            <Property name="name" type="java.lang.String" value="txt_ostudentID" noResource="true"/>
+            <Property name="name" type="java.lang.String" value="txt_studid" noResource="true"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -334,7 +359,10 @@
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Register "/>
+            <TitledBorder title="Register ">
+              <Font PropertyName="font" name="Castellar" size="24" style="1"/>
+              <Color PropertyName="color" blue="33" green="0" red="ff" type="rgb"/>
+            </TitledBorder>
           </Border>
         </Property>
       </Properties>
@@ -346,25 +374,25 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="lbl_stu_ID3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_regstudid" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txt_stu_ID3" min="-2" pref="134" max="-2" attributes="0"/>
+                          <Component id="txt_regstudid" min="-2" pref="134" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="lbl_courseid3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_regcourseid" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="cbx_course_title3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cbox_regcourseid" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="lbl_year3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_regyear" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="cbox_year3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cbox_regyear" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_regdate" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="txt_regdate" min="-2" pref="150" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="btn_regstudentadd" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="btn_addregister" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jSpinner4" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="85" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -373,30 +401,33 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lbl_stu_ID3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txt_stu_ID3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lbl_courseid3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cbx_course_title3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lbl_year3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cbox_year3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jSpinner4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbl_regstudid" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_regstudid" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbl_regcourseid" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbox_regcourseid" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbl_regyear" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbox_regyear" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbl_regdate" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_regdate" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="btn_regstudentadd" min="-2" pref="30" max="-2" attributes="0"/>
+                  <EmptySpace pref="7" max="32767" attributes="0"/>
+                  <Component id="btn_addregister" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lbl_stu_ID3">
+        <Component class="javax.swing.JLabel" name="lbl_regstudid">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="14" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Student ID:"/>
-            <Property name="name" type="java.lang.String" value="lbl_stu_ID" noResource="true"/>
+            <Property name="name" type="java.lang.String" value="lbl_regstudid" noResource="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txt_stu_ID3">
+        <Component class="javax.swing.JTextField" name="txt_regstudid">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="ff" red="cc" type="rgb"/>
@@ -404,13 +435,16 @@
             <Property name="name" type="java.lang.String" value="txt_stu_ID" noResource="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lbl_courseid3">
+        <Component class="javax.swing.JLabel" name="lbl_regcourseid">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="14" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Course ID:"/>
-            <Property name="name" type="java.lang.String" value="lbl_courseid" noResource="true"/>
+            <Property name="name" type="java.lang.String" value="lbl_regcourseid" noResource="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cbx_course_title3">
+        <Component class="javax.swing.JComboBox" name="cbox_regcourseid">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="ff" red="cc" type="rgb"/>
@@ -423,19 +457,25 @@
                 <StringItem index="3" value="Item 4"/>
               </StringArray>
             </Property>
-            <Property name="name" type="java.lang.String" value="cbx_course_title" noResource="true"/>
+            <Property name="name" type="java.lang.String" value="cbox_regcourseid" noResource="true"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbox_regcourseidActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="lbl_year3">
+        <Component class="javax.swing.JLabel" name="lbl_regyear">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="14" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Year:"/>
-            <Property name="name" type="java.lang.String" value="lbl_year" noResource="true"/>
+            <Property name="name" type="java.lang.String" value="lbl_regyear" noResource="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cbox_year3">
+        <Component class="javax.swing.JComboBox" name="cbox_regyear">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="ff" red="cc" type="rgb"/>
@@ -447,29 +487,22 @@
                 <StringItem index="2" value="2018"/>
               </StringArray>
             </Property>
-            <Property name="name" type="java.lang.String" value="cbox_year" noResource="true"/>
+            <Property name="name" type="java.lang.String" value="cbox_regyear" noResource="true"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel6">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Date"/>
-            <Property name="name" type="java.lang.String" value="lbl_enroldate" noResource="true"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JSpinner" name="jSpinner4">
+        <Component class="javax.swing.JLabel" name="lbl_regdate">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="&#x65b0;&#x7d30;&#x660e;&#x9ad4;" size="14" style="0"/>
+              <Font name="Times New Roman" size="14" style="0"/>
             </Property>
-            <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-              <SpinnerModel initial="now" stepSize="5" type="date"/>
-            </Property>
+            <Property name="text" type="java.lang.String" value="Date"/>
+            <Property name="name" type="java.lang.String" value="lbl_regdate" noResource="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btn_regstudentadd">
+        <Component class="javax.swing.JButton" name="btn_addregister">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Times New Roman" size="14" style="0"/>
@@ -486,7 +519,21 @@
                 </EtchetBorder>
               </Border>
             </Property>
-            <Property name="name" type="java.lang.String" value="btn_regstudentadd" noResource="true"/>
+            <Property name="name" type="java.lang.String" value="btn_addregister" noResource="true"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_addregisterActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txt_regdate">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="ff" red="cc" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="14" style="0"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="txt_regdate" noResource="true"/>
           </Properties>
         </Component>
       </SubComponents>

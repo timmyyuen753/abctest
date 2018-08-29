@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package edu.cityu.ces.gui;
+import edu.cityu.ces.domain.Department;
 
 /**
  *
@@ -60,12 +61,27 @@ public class Department_Panel extends javax.swing.JPanel {
 
         btn_deptcreate.setText("Create");
         btn_deptcreate.setName("btn_deptcreate"); // NOI18N
+        btn_deptcreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_deptcreateActionPerformed(evt);
+            }
+        });
 
         btn_deptupdate.setText("Update");
         btn_deptupdate.setName("btn_deptupdate"); // NOI18N
+        btn_deptupdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_deptupdateActionPerformed(evt);
+            }
+        });
 
         btn_deptdelete.setText("Delete");
         btn_deptdelete.setName("btn_deptdelete"); // NOI18N
+        btn_deptdelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_deptdeleteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -132,6 +148,38 @@ public class Department_Panel extends javax.swing.JPanel {
                 .addContainerGap(359, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_deptcreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deptcreateActionPerformed
+        // TODO add your handling code here:
+        Department department = new Department();
+        department.setDeptID(txt_ndepartment.toString());
+        department.setDeptName(txt_ndeptname.toString());
+        department.setLocation(txt_deptloc.toString());
+        
+    }//GEN-LAST:event_btn_deptcreateActionPerformed
+
+    private void btn_deptupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deptupdateActionPerformed
+        // TODO add your handling code here:
+        Department department = new Department();
+        if(department.getDeptID() == txt_ndepartment.toString()){
+            department.setDeptName(txt_ndeptname.toString());
+            department.setLocation(txt_deptloc.toString());
+        }
+    }//GEN-LAST:event_btn_deptupdateActionPerformed
+
+    private void btn_deptdeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deptdeleteActionPerformed
+        // TODO add your handling code here:
+        Department department = new Department();
+        if(department.getDeptID() == txt_ndepartment.toString()){
+            txt_ndepartment.remove(this);
+        }
+        if(department.getDeptName()== txt_ndeptname.toString()){
+            txt_ndeptname.remove(this);
+        }
+        if(department.getLocation()== txt_deptloc.toString()){
+            txt_deptloc.remove(this);
+        }
+    }//GEN-LAST:event_btn_deptdeleteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

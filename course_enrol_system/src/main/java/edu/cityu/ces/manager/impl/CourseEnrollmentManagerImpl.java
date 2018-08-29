@@ -12,6 +12,7 @@ import edu.cityu.ces.dao.StudentRepository;
 import edu.cityu.ces.domain.Course;
 import edu.cityu.ces.domain.Department;
 import edu.cityu.ces.domain.Enrolled;
+import edu.cityu.ces.domain.Offer;
 import edu.cityu.ces.domain.Student;
 import edu.cityu.ces.manager.CourseEnrollmentManager;
 
@@ -129,10 +130,12 @@ public class CourseEnrollmentManagerImpl implements CourseEnrollmentManager {
 			} else if (student == null) {
 				System.out.println("The student does not exist!");
 			} else {
-				int availablePlaces = course.getOffer().getAvailablePlaces();
-				int numOfEnrolledStudent = course.getOffer().getNumOfEnrolStud();
-				course.getOffer().setAvailablePlaces(availablePlaces - 1);
-				course.getOffer().setNumOfEnrolStud(numOfEnrolledStudent + 1);
+				Offer currentOffer = course.getCurrentYearOffer();
+				int availablePlaces = currentOffer.getAvailablePlaces();
+				int numOfEnrolledStudent = currentOffer.getNumOfEnrolStud();
+				currentOffer.setAvailablePlaces(availablePlaces - 1);
+				currentOffer.setNumOfEnrolStud(numOfEnrolledStudent + 1);
+				course.updateOffer(currentOffer);
 				
 				List<Enrolled> enrolledList = student.getEnrolled();
 				enrolledList.add(new Enrolled(year, courseID, new Date()));
@@ -154,10 +157,12 @@ public class CourseEnrollmentManagerImpl implements CourseEnrollmentManager {
 			Course course = courseRepository.findByCourseID(courseID);
 			Student student = studentRepository.findByStudentID(studentID);
 			
-			int availablePlaces = course.getOffer().getAvailablePlaces();
-			int numOfEnrolledStudent = course.getOffer().getNumOfEnrolStud();
-			course.getOffer().setAvailablePlaces(availablePlaces + 1);
-			course.getOffer().setNumOfEnrolStud(numOfEnrolledStudent - 1);
+			Offer currentOffer = course.getCurrentYearOffer();
+			int availablePlaces = currentOffer.getAvailablePlaces();
+			int numOfEnrolledStudent = currentOffer.getNumOfEnrolStud();
+			currentOffer.setAvailablePlaces(availablePlaces + 1);
+			currentOffer.setNumOfEnrolStud(numOfEnrolledStudent - 1);
+			course.updateOffer(currentOffer);
 			
 			List<Enrolled> enrolledList = student.getEnrolled();
 			for (Iterator<Enrolled> iter = enrolledList.listIterator(); iter.hasNext();) {

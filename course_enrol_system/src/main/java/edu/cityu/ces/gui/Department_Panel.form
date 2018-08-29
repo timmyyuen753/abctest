@@ -146,18 +146,27 @@
             <Property name="text" type="java.lang.String" value="Create"/>
             <Property name="name" type="java.lang.String" value="btn_deptcreate" noResource="true"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_deptcreateActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_deptupdate">
           <Properties>
             <Property name="text" type="java.lang.String" value="Update"/>
             <Property name="name" type="java.lang.String" value="btn_deptupdate" noResource="true"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_deptupdateActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_deptdelete">
           <Properties>
             <Property name="text" type="java.lang.String" value="Delete"/>
             <Property name="name" type="java.lang.String" value="btn_deptdelete" noResource="true"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_deptdeleteActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

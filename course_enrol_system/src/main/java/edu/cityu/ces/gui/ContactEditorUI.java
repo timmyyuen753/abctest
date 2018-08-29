@@ -6,26 +6,24 @@
 package edu.cityu.ces.gui;
 
 import java.awt.CardLayout;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
-
-import edu.cityu.ces.manager.CourseEnrollmentManager;
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import edu.cityu.ces.gui.Student_Panel;
 
 /**
  *
  * @author Timmy
  */
 public class ContactEditorUI extends javax.swing.JFrame {
-	
-	@Autowired
-	private CourseEnrollmentManager courseEnrollmentManager;
 
     /**
      * Creates new form MainFrame
      */
     public ContactEditorUI() {
-        initComponents();
+        initComponents(); 
+        
+        
     }
 
     /**
@@ -38,16 +36,22 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btn_Student = new javax.swing.JButton();
-        btn_Course = new javax.swing.JButton();
-        btn_Department = new javax.swing.JButton();
-        btn_Searchinfo = new javax.swing.JButton();
         lbl_systemname = new javax.swing.JLabel();
+        containbtn = new javax.swing.JPanel();
+        btn_Student = new javax.swing.JButton("Student");
+        btn_Course = new javax.swing.JButton("Course");
+        btn_Department = new javax.swing.JButton("Department");
+        btn_Searchinfo = new javax.swing.JButton("Search info");
         mainPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+
+        lbl_systemname.setFont(new java.awt.Font("STCaiyun", 1, 48)); // NOI18N
+        lbl_systemname.setForeground(new java.awt.Color(255, 0, 0));
+        lbl_systemname.setText("Course Enrol SYSTEM");
+        lbl_systemname.setName("lbl_systemname"); // NOI18N
 
         btn_Student.setBackground(new java.awt.Color(0, 153, 204));
         btn_Student.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 24)); // NOI18N
@@ -55,9 +59,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
         btn_Student.setText("Student");
         btn_Student.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.green, new java.awt.Color(0, 204, 204), java.awt.Color.green, new java.awt.Color(204, 204, 255)));
         btn_Student.setName("btn_Student"); // NOI18N
-        btn_Student.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_StudentMouseClicked(evt);
+        btn_Student.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_StudentActionPerformed(evt);
             }
         });
 
@@ -67,9 +71,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
         btn_Course.setText("Course");
         btn_Course.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.green, new java.awt.Color(0, 204, 204), java.awt.Color.green, new java.awt.Color(204, 204, 255)));
         btn_Course.setName("btn_Course"); // NOI18N
-        btn_Course.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_CourseMouseClicked(evt);
+        btn_Course.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CourseActionPerformed(evt);
             }
         });
 
@@ -79,9 +83,9 @@ public class ContactEditorUI extends javax.swing.JFrame {
         btn_Department.setText("Department");
         btn_Department.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.green, new java.awt.Color(0, 153, 153), java.awt.Color.green, new java.awt.Color(204, 204, 255)));
         btn_Department.setName("Department"); // NOI18N
-        btn_Department.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_DepartmentMouseClicked(evt);
+        btn_Department.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_DepartmentActionPerformed(evt);
             }
         });
 
@@ -91,35 +95,57 @@ public class ContactEditorUI extends javax.swing.JFrame {
         btn_Searchinfo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.green, new java.awt.Color(0, 153, 153), java.awt.Color.green, new java.awt.Color(204, 204, 255)));
         btn_Searchinfo.setLabel("Search info");
         btn_Searchinfo.setName("btn_Searchinfo"); // NOI18N
-        btn_Searchinfo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_SearchinfoMouseClicked(evt);
+        btn_Searchinfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_SearchinfoActionPerformed(evt);
             }
         });
 
-        lbl_systemname.setFont(new java.awt.Font("STCaiyun", 1, 48)); // NOI18N
-        lbl_systemname.setForeground(new java.awt.Color(255, 0, 0));
-        lbl_systemname.setText("Course Enrol SYSTEM");
-        lbl_systemname.setName("lbl_systemname"); // NOI18N
+        javax.swing.GroupLayout containbtnLayout = new javax.swing.GroupLayout(containbtn);
+        containbtn.setLayout(containbtnLayout);
+        containbtnLayout.setHorizontalGroup(
+            containbtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(containbtnLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btn_Student, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(btn_Course, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addComponent(btn_Department, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(btn_Searchinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        containbtnLayout.setVerticalGroup(
+            containbtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, containbtnLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_Student, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(containbtnLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(containbtnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_Searchinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_Department, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_Course, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        mainPanel.setLayout(new java.awt.CardLayout());
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(192, 192, 192)
-                .addComponent(btn_Student, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(btn_Course, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(btn_Department, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(btn_Searchinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lbl_systemname)
                 .addGap(110, 110, 110))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(190, 190, 190)
+                .addComponent(containbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addComponent(mainPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,16 +153,11 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(lbl_systemname)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_Course, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_Student, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_Department, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_Searchinfo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(containbtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
-
-        mainPanel.setName("mainPanel"); // NOI18N
-        mainPanel.setLayout(new java.awt.CardLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -144,55 +165,58 @@ public class ContactEditorUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(462, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_StudentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_StudentMouseClicked
-        // TODO add your handling code here:
-        mainPanel.add(new Student_Panel(),"student_panel");
-    }//GEN-LAST:event_btn_StudentMouseClicked
+    private void btn_StudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_StudentActionPerformed
+        mainPanel.removeAll();
+        mainPanel.add(new Student_Panel());
+        mainPanel.repaint();
+        mainPanel.revalidate();
+    }//GEN-LAST:event_btn_StudentActionPerformed
 
-    private void btn_CourseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CourseMouseClicked
-        // TODO add your handling code here:
-        mainPanel.add(new Course_Panel(),"course_panel");
-    }//GEN-LAST:event_btn_CourseMouseClicked
+    private void btn_CourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CourseActionPerformed
+        mainPanel.removeAll();
+        mainPanel.add(new Course_Panel());
+        mainPanel.repaint();
+        mainPanel.revalidate();
+    }//GEN-LAST:event_btn_CourseActionPerformed
 
-    private void btn_DepartmentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DepartmentMouseClicked
-        // TODO add your handling code here:
-        mainPanel.add(new Department_Panel(),"department_panel");
-    }//GEN-LAST:event_btn_DepartmentMouseClicked
+    private void btn_DepartmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_DepartmentActionPerformed
+        mainPanel.removeAll();
+        mainPanel.add(new Department_Panel());
+        mainPanel.repaint();
+        mainPanel.revalidate();
+    }//GEN-LAST:event_btn_DepartmentActionPerformed
 
-    private void btn_SearchinfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SearchinfoMouseClicked
-        // TODO add your handling code here:
-        mainPanel.add(new Search_Panel(),"search_panel");
-    }//GEN-LAST:event_btn_SearchinfoMouseClicked
+    private void btn_SearchinfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SearchinfoActionPerformed
+        mainPanel.removeAll();
+        mainPanel.add(new Search_Panel());
+        mainPanel.repaint();
+        mainPanel.revalidate();
+    }//GEN-LAST:event_btn_SearchinfoActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-    	SpringApplication.run(ContactEditorUI.class, args);
-    	
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+        new ContactEditorUI();
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -211,6 +235,12 @@ public class ContactEditorUI extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -218,15 +248,21 @@ public class ContactEditorUI extends javax.swing.JFrame {
                 new ContactEditorUI().setVisible(true);
             }
         });
+        
     }
+
+    
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Course;
     private javax.swing.JButton btn_Department;
     private javax.swing.JButton btn_Searchinfo;
     private javax.swing.JButton btn_Student;
+    private javax.swing.JPanel containbtn;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbl_systemname;
     private javax.swing.JPanel mainPanel;
     // End of variables declaration//GEN-END:variables
+
 }
