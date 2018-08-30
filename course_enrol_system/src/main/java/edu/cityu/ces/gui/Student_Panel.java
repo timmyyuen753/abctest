@@ -378,9 +378,9 @@ public class Student_Panel extends javax.swing.JPanel {
         // TODO add your handling code here:
         Student student = new Student();
         if(String.valueOf(student.getStudentID()).equals(txt_studid.toString())) {
-                  student.setStuName(txt_newstudname.toString());
-        String dataInString = "txt_newstud_DOB";
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
+                  student.setStuName(txt_newstudname.getText());
+        String dataInString = txt_newstud_DOB.getText();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
         try {
             Date dob = formatter.parse(dataInString);
             student.setDob(dob);
@@ -393,10 +393,10 @@ public class Student_Panel extends javax.swing.JPanel {
     private void btn_delstudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_delstudActionPerformed
         // TODO add your handling code here:
         Student student = new Student();
-        if(String.valueOf(student.getStudentID()).equals(txt_studid.toString())) {
+        if(String.valueOf(student.getStudentID()).equals(txt_studid.getText())) {
             txt_studid.remove(this);
         }
-        if(student.getStuName()== txt_newstudname.toString()){
+        if(student.getStuName().equalsIgnoreCase(txt_newstudname.getText())){
             txt_newstudname.remove(this);
         }
     }//GEN-LAST:event_btn_delstudActionPerformed
@@ -410,12 +410,12 @@ public class Student_Panel extends javax.swing.JPanel {
     private void btn_addregisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addregisterActionPerformed
         // TODO add your handling code here:
         Student student = new Student();
-        if (String.valueOf(student.getStudentID()).equals(txt_regstudid.toString())) {
+        if (String.valueOf(student.getStudentID()).equals(txt_regstudid.getText())) {
         Enrolled enrolled = new Enrolled();
         enrolled.setCourseID(cbox_regcourseid.toString());
         enrolled.setYear(cbox_regyear.toString());
-        String dataInString = "txt_regdate";
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
+        String dataInString = txt_regdate.getText();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
         try {
             Date enrolldate = formatter.parse(dataInString);
             enrolled.setEnrollDate(enrolldate);
