@@ -5,12 +5,15 @@
  */
 package edu.cityu.ces.gui;
 import edu.cityu.ces.domain.Department;
+import edu.cityu.ces.manager.CourseEnrollmentManager;
 
 /**
  *
  * @author Timmy
  */
 public class Department_Panel extends javax.swing.JPanel {
+	
+	private CourseEnrollmentManager courseEnrollmentManager;
 
     /**
      * Creates new form Department_Panel
@@ -194,4 +197,12 @@ public class Department_Panel extends javax.swing.JPanel {
     private javax.swing.JTextField txt_ndepartment;
     private javax.swing.JTextField txt_ndeptname;
     // End of variables declaration//GEN-END:variables
+    
+    public CourseEnrollmentManager getCourseEnrollmentManager() {
+		return courseEnrollmentManager;
+	}
+
+	public void setCourseEnrollmentManager(CourseEnrollmentManager courseEnrollmentManager) {
+		this.courseEnrollmentManager = courseEnrollmentManager;
+	}
 }

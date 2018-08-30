@@ -6,12 +6,15 @@
 package edu.cityu.ces.gui;
 
 import edu.cityu.ces.domain.Course;
+import edu.cityu.ces.manager.CourseEnrollmentManager;
 
 /**
  *
  * @author Timmy
  */
 public class Course_Panel extends javax.swing.JPanel {
+	
+	private CourseEnrollmentManager courseEnrollmentManager;
 
     /**
      * Creates new form Crouse_Panel
@@ -201,4 +204,12 @@ public class Course_Panel extends javax.swing.JPanel {
     private javax.swing.JTextField txt_ncoruse_id;
     private javax.swing.JTextField txt_ncrouse_title;
     // End of variables declaration//GEN-END:variables
+    
+    public CourseEnrollmentManager getCourseEnrollmentManager() {
+		return courseEnrollmentManager;
+	}
+
+	public void setCourseEnrollmentManager(CourseEnrollmentManager courseEnrollmentManager) {
+		this.courseEnrollmentManager = courseEnrollmentManager;
+	}
 }

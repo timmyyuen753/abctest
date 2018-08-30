@@ -12,7 +12,7 @@ public class Student {
 	private String id;
 	
 	@Indexed(unique = true)
-	private String studentID;
+	private int studentID;
 	
 	private String studentName;
 	
@@ -22,7 +22,7 @@ public class Student {
 	
 	public Student() {}
 	
-	public Student(String studentID, String studentName, Date dob, List<Enrolled> enrolled) {
+	public Student(int studentID, String studentName, Date dob, List<Enrolled> enrolled) {
 		this.studentID = studentID;
 		this.studentName = studentName;
 		this.dob = dob;
@@ -50,11 +50,11 @@ public class Student {
 		this.id = id;
 	}
 
-	public String getStudentID() {
+	public int getStudentID() {
 		return studentID;
 	}
 
-	public void setStudentID(String studentID) {
+	public void setStudentID(int studentID) {
 		this.studentID = studentID;
 	}
 

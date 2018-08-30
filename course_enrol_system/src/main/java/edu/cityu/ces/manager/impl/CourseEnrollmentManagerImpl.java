@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import edu.cityu.ces.dao.CourseRepository;
 import edu.cityu.ces.dao.DepartmentRepository;
@@ -16,6 +17,7 @@ import edu.cityu.ces.domain.Offer;
 import edu.cityu.ces.domain.Student;
 import edu.cityu.ces.manager.CourseEnrollmentManager;
 
+@Component
 public class CourseEnrollmentManagerImpl implements CourseEnrollmentManager {
 	
 	@Autowired
@@ -90,6 +92,10 @@ public class CourseEnrollmentManagerImpl implements CourseEnrollmentManager {
 	public List<Course> findCourseByLevel(String level) {
 		return courseRepository.findByLevel(level);
 	}
+	
+	public int generateNewStudentID() {
+		return studentRepository.getMaxStudentID()+1;
+	}
 
 	@Override
 	public Student addStudent(Student student) {
@@ -109,7 +115,7 @@ public class CourseEnrollmentManagerImpl implements CourseEnrollmentManager {
 	}
 
 	@Override
-	public Student findStudentByStudentID(String studentID) {
+	public Student findStudentByStudentID(int studentID) {
 		return studentRepository.findByStudentID(studentID);
 	}
 
@@ -119,7 +125,7 @@ public class CourseEnrollmentManagerImpl implements CourseEnrollmentManager {
 	}
 
 	@Override
-	public void enrollCourse(String courseID, String year, String studentID) {
+	public void enrollCourse(String courseID, String year, int studentID) {
 		Student enrolledStudent = studentRepository.findByStudentIdAndEnrolledCourse(studentID, year, courseID);
 		
 		if (enrolledStudent == null) {
@@ -150,7 +156,7 @@ public class CourseEnrollmentManagerImpl implements CourseEnrollmentManager {
 	}
 
 	@Override
-	public void dropCourse(String courseID, String year, String studentID) {
+	public void dropCourse(String courseID, String year, int studentID) {
 		Student enrolledStudent = studentRepository.findByStudentIdAndEnrolledCourse(studentID, year, courseID);
 		
 		if (enrolledStudent != null) {

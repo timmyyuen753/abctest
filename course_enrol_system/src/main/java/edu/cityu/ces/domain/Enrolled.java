@@ -1,4 +1,4 @@
-    package edu.cityu.ces.domain;
+package edu.cityu.ces.domain;
 
 import java.util.Date;
 

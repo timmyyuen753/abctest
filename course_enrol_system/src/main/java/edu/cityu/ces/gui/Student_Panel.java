@@ -7,8 +7,9 @@ package edu.cityu.ces.gui;
 
 import java.util.Date;
 
-import edu.cityu.ces.gui.ContactEditorUI;
+import edu.cityu.ces.manager.CourseEnrollmentManager;
 import edu.cityu.ces.domain.Student;
+import edu.cityu.ces.ContactEditorUI;
 import edu.cityu.ces.SpringMongoConfiguration;
 import edu.cityu.ces.dao.StudentRepository;
 import edu.cityu.ces.domain.Course;
@@ -17,14 +18,20 @@ import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFormattedTextField;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import edu.cityu.ces.domain.Enrolled;
 /**
  *
  * @author Timmy
  */
 public class Student_Panel extends javax.swing.JPanel {
-
-    /**
+	
+	private CourseEnrollmentManager courseEnrollmentManager;
+	
+	/**
      * Creates new form Student_Panel
      */
     public Student_Panel() {
@@ -351,12 +358,16 @@ public class Student_Panel extends javax.swing.JPanel {
     private void btn_addstudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addstudActionPerformed
         // TODO add your handling code here:
         Student student = new Student();
-        student.setStuName(txt_newstudname.toString());
-        String dataInString = "txt_newstud_DOB";
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
+        student.setStudentID(courseEnrollmentManager.generateNewStudentID());
+        student.setStuName(txt_newstudname.getText());
+        String dataInString = txt_newstud_DOB.getText();
+        System.out.println("DOB string: " + dataInString);
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
         try {
             Date dob = formatter.parse(dataInString);
             student.setDob(dob);
+            
+            courseEnrollmentManager.addStudent(student);
         } catch (ParseException ex) {
             Logger.getLogger(Student_Panel.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -366,7 +377,7 @@ public class Student_Panel extends javax.swing.JPanel {
     private void btn_updatstudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_updatstudActionPerformed
         // TODO add your handling code here:
         Student student = new Student();
-        if(student.getStudentID() == txt_studid.toString()){
+        if(String.valueOf(student.getStudentID()).equals(txt_studid.toString())) {
                   student.setStuName(txt_newstudname.toString());
         String dataInString = "txt_newstud_DOB";
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
@@ -382,7 +393,7 @@ public class Student_Panel extends javax.swing.JPanel {
     private void btn_delstudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_delstudActionPerformed
         // TODO add your handling code here:
         Student student = new Student();
-        if(student.getStudentID()== txt_studid.toString()){
+        if(String.valueOf(student.getStudentID()).equals(txt_studid.toString())) {
             txt_studid.remove(this);
         }
         if(student.getStuName()== txt_newstudname.toString()){
@@ -399,7 +410,7 @@ public class Student_Panel extends javax.swing.JPanel {
     private void btn_addregisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addregisterActionPerformed
         // TODO add your handling code here:
         Student student = new Student();
-        if(student.getStudentID() == txt_regstudid.toString()){
+        if (String.valueOf(student.getStudentID()).equals(txt_regstudid.toString())) {
         Enrolled enrolled = new Enrolled();
         enrolled.setCourseID(cbox_regcourseid.toString());
         enrolled.setYear(cbox_regyear.toString());
@@ -443,4 +454,12 @@ public class Student_Panel extends javax.swing.JPanel {
     private javax.swing.JTextField txt_studid;
     private javax.swing.JTextField txt_studname;
     // End of variables declaration//GEN-END:variables
+    
+    public CourseEnrollmentManager getCourseEnrollmentManager() {
+		return courseEnrollmentManager;
+	}
+
+	public void setCourseEnrollmentManager(CourseEnrollmentManager courseEnrollmentManager) {
+		this.courseEnrollmentManager = courseEnrollmentManager;
+	}
 }

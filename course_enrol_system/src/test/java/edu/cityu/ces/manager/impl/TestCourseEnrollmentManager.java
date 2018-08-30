@@ -36,11 +36,16 @@ public class TestCourseEnrollmentManager {
 	
 	@Test
 	public void testEnrollCourse() {
-		courseEnrollmentManager.enrollCourse("IS101", "2018", "12340008");
+		courseEnrollmentManager.enrollCourse("IS101", "2018", 12340008);
 	}
 	
 	@Test
 	public void testDropCourse() {
-		courseEnrollmentManager.dropCourse("IS101", "2018", "12340008");
+		courseEnrollmentManager.dropCourse("IS101", "2018", 12340008);
+	}
+	
+	@Test
+	public void testGenerateNewStudentID() {
+		System.out.println("New Student ID: " + courseEnrollmentManager.generateNewStudentID());
 	}
 }

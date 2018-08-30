@@ -3,19 +3,35 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.cityu.ces.gui;
+package edu.cityu.ces;
 
 import java.awt.CardLayout;
+import java.awt.EventQueue;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.context.ConfigurableApplicationContext;
+
+import edu.cityu.ces.gui.Course_Panel;
+import edu.cityu.ces.gui.Department_Panel;
+import edu.cityu.ces.gui.Search_Panel;
 import edu.cityu.ces.gui.Student_Panel;
+import edu.cityu.ces.manager.CourseEnrollmentManager;
 
 /**
  *
  * @author Timmy
  */
+@SpringBootApplication
 public class ContactEditorUI extends javax.swing.JFrame {
+	
+	@Autowired
+	private CourseEnrollmentManager courseEnrollmentManager;
 
     /**
      * Creates new form MainFrame
@@ -179,29 +195,40 @@ public class ContactEditorUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_StudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_StudentActionPerformed
+    	Student_Panel student_Panel = new Student_Panel();
+    	student_Panel.setCourseEnrollmentManager(courseEnrollmentManager);
+    	if (courseEnrollmentManager == null) {
+    		System.out.println("courseEnrollmentManager is null!!");
+    	}
         mainPanel.removeAll();
-        mainPanel.add(new Student_Panel());
+        mainPanel.add(student_Panel);
         mainPanel.repaint();
         mainPanel.revalidate();
     }//GEN-LAST:event_btn_StudentActionPerformed
 
     private void btn_CourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CourseActionPerformed
+    	Course_Panel course_Panel = new Course_Panel();
+    	course_Panel.setCourseEnrollmentManager(courseEnrollmentManager);
         mainPanel.removeAll();
-        mainPanel.add(new Course_Panel());
+        mainPanel.add(course_Panel);
         mainPanel.repaint();
         mainPanel.revalidate();
     }//GEN-LAST:event_btn_CourseActionPerformed
 
     private void btn_DepartmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_DepartmentActionPerformed
+    	Department_Panel department_Panel = new Department_Panel();
+    	department_Panel.setCourseEnrollmentManager(courseEnrollmentManager);
         mainPanel.removeAll();
-        mainPanel.add(new Department_Panel());
+        mainPanel.add(department_Panel);
         mainPanel.repaint();
         mainPanel.revalidate();
     }//GEN-LAST:event_btn_DepartmentActionPerformed
 
     private void btn_SearchinfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SearchinfoActionPerformed
+    	Search_Panel search_Panel = new Search_Panel();
+    	search_Panel.setCourseEnrollmentManager(courseEnrollmentManager);
         mainPanel.removeAll();
-        mainPanel.add(new Search_Panel());
+        mainPanel.add(search_Panel);
         mainPanel.repaint();
         mainPanel.revalidate();
     }//GEN-LAST:event_btn_SearchinfoActionPerformed
@@ -210,12 +237,20 @@ public class ContactEditorUI extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+    	ConfigurableApplicationContext ctx = new SpringApplicationBuilder(ContactEditorUI.class)
+                .headless(false).run(args);
+
+        EventQueue.invokeLater(() -> {
+        	ContactEditorUI ex = ctx.getBean(ContactEditorUI.class);
+            ex.setVisible(true);
+        });
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        new ContactEditorUI();
+        //new ContactEditorUI();
         
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -243,16 +278,15 @@ public class ContactEditorUI extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+        /*
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ContactEditorUI().setVisible(true);
             }
         });
+        */
         
     }
-
-    
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Course;
@@ -264,5 +298,4 @@ public class ContactEditorUI extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_systemname;
     private javax.swing.JPanel mainPanel;
     // End of variables declaration//GEN-END:variables
-
 }

@@ -21,14 +21,14 @@ public class TestStudentRepository {
 	
 	@Test
 	public void testFindByStudentId() {
-		Student student = repository.findByStudentID("12340008");
+		Student student = repository.findByStudentID(12340008);
 		
 		System.out.println("Student = " + student.toString());
 	}
 	
 	@Test
 	public void testFindEnrolledCourse() {
-		Student student = repository.findByStudentIdAndEnrolledCourse("12340008", "2016", "CS101");
+		Student student = repository.findByStudentIdAndEnrolledCourse(12340008, "2016", "CS101");
 		
 		if (student != null) {
 			List<Enrolled> enrolledList = student.getEnrolled();

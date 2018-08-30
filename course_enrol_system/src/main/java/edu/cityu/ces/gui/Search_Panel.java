@@ -5,11 +5,15 @@
  */
 package edu.cityu.ces.gui;
 
+import edu.cityu.ces.manager.CourseEnrollmentManager;
+
 /**
  *
  * @author Timmy
  */
 public class Search_Panel extends javax.swing.JPanel {
+	
+	private CourseEnrollmentManager courseEnrollmentManager;
 
     /**
      * Creates new form Search
@@ -192,4 +196,12 @@ public class Search_Panel extends javax.swing.JPanel {
     private javax.swing.JTextField txt_searchstdid;
     private javax.swing.JTextField txt_searchstdname;
     // End of variables declaration//GEN-END:variables
+    
+    public CourseEnrollmentManager getCourseEnrollmentManager() {
+		return courseEnrollmentManager;
+	}
+
+	public void setCourseEnrollmentManager(CourseEnrollmentManager courseEnrollmentManager) {
+		this.courseEnrollmentManager = courseEnrollmentManager;
+	}
 }

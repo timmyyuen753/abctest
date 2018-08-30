@@ -32,17 +32,19 @@ public interface CourseEnrollmentManager {
 	
 	public List<Course> findCourseByLevel(String level);
 	
+	public int generateNewStudentID();
+	
 	public Student addStudent(Student student);
 	
 	public Student updateStudent(Student oldStudent, Student newStudent);
 	
 	public void deleteStudent(Student student);
 	
-	public Student findStudentByStudentID(String studentID);
+	public Student findStudentByStudentID(int studentID);
 	
 	public List<Student> findStudentByStudentName(String studentName);
 	
-	public void enrollCourse(String courseID, String year, String studentID);
+	public void enrollCourse(String courseID, String year, int studentID);
 	
-	public void dropCourse(String courseID, String year, String studentID);
+	public void dropCourse(String courseID, String year, int studentID);
 }
