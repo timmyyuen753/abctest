@@ -1,5 +1,7 @@
 package edu.cityu.ces.manager.impl;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +42,17 @@ public class TestCourseEnrollmentManager {
 		Course course = courseEnrollmentManager.findCourseByCourseID("CS101");
 		System.out.println("Course retrieved: " + course.toString());
 	}
+	
+	@Test
+	public void testGetAllCourseTitie() {
+		List<Course> courseList = courseEnrollmentManager.listAllCourses();
+		int i = 0;
+		for (Course course : courseList) {
+			System.out.println(i + " - Course ID: " + course.getCourseID() + " Course Title: " + course.getTitle());
+			i++;
+		}
+	}
+	
 	
 	@Test
 	public void testEnrollCourse() {

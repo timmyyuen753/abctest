@@ -186,4 +186,9 @@ public class CourseEnrollmentManagerImpl implements CourseEnrollmentManager {
 			System.out.println("This student is not enrolled in this course!");
 		}
 	}
+
+	@Override
+	public List<Course> listAllCourses() {
+		return courseRepository.findAll();
+	}
 }

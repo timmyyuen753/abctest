@@ -26,6 +26,8 @@ public interface CourseEnrollmentManager {
 	
 	public Course findCourseByCourseID(String courseID);
 	
+	public List<Course> listAllCourses();
+	
 	public List<Course> findCourseByDepartmentID(String departmentID);
 	
 	public List<Course> findCourseByTitle(String title);
