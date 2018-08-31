@@ -7,6 +7,7 @@ package edu.cityu.ces.gui;
 import edu.cityu.ces.domain.Department;
 import edu.cityu.ces.manager.CourseEnrollmentManager;
 
+
 /**
  *
  * @author Timmy
@@ -155,9 +156,11 @@ public class Department_Panel extends javax.swing.JPanel {
     private void btn_deptcreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deptcreateActionPerformed
         // TODO add your handling code here:
         Department department = new Department();
-        department.setDeptID(txt_ndepartment.toString());
-        department.setDeptName(txt_ndeptname.toString());
-        department.setLocation(txt_deptloc.toString());
+        department.setDeptID(txt_ndepartment.getText());
+        department.setDeptName(txt_ndeptname.getText());
+        department.setLocation(txt_deptloc.getText());
+        courseEnrollmentManager.addDepartment(department);
+        System.out.println("Department has been added !");
         
     }//GEN-LAST:event_btn_deptcreateActionPerformed
 

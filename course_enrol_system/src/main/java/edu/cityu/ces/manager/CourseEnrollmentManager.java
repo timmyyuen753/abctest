@@ -49,4 +49,4 @@ public interface CourseEnrollmentManager {
 	public void enrollCourse(String courseID, String year, int studentID);
 	
 	public void dropCourse(String courseID, String year, int studentID);
-}
+}   

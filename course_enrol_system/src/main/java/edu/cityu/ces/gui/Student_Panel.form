@@ -30,11 +30,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel2" alignment="1" max="32767" attributes="0"/>
-                  <Component id="newstudent_panel" alignment="1" max="32767" attributes="0"/>
-                  <Component id="jPanel5" alignment="1" max="32767" attributes="0"/>
-              </Group>
+              <Component id="newstudent_panel" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -43,12 +39,8 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="newstudent_panel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="89" max="32767" attributes="0"/>
+              <Component id="newstudent_panel" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -61,7 +53,7 @@
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="New Student">
+            <TitledBorder title="Student">
               <Font PropertyName="font" name="Castellar" size="24" style="1"/>
               <Color PropertyName="color" blue="33" green="0" red="ff" type="rgb"/>
             </TitledBorder>
@@ -79,33 +71,91 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lbl_newstudname" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="btn_addstud" min="-2" pref="48" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="btn_updatstud" min="-2" pref="50" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txt_newstudname" min="-2" pref="150" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                          <Component id="lbl_newstud_DOB" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txt_newstud_DOB" min="-2" pref="150" max="-2" attributes="0"/>
+                          <Component id="btn_delstud" min="-2" pref="70" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="btn_addstud" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="219" max="-2" attributes="0"/>
+                          <Component id="lbl_regyear" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="lbl_newstud_DOB" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="txt_newstud_DOB" min="-2" pref="150" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="cbox_regyear" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="200" max="32767" attributes="0"/>
+                  <EmptySpace pref="194" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="lbl_studid" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="txt_studid" min="-2" pref="161" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lbl_regdate" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txt_regdate" min="-2" pref="200" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lbl_regcourseid" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="cbox_regcourseid" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lbl_newstudname" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txt_newstudname" min="-2" pref="194" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lbl_newstudname" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txt_newstudname" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbl_studid" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_studid" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lbl_newstud_DOB" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txt_newstud_DOB" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="10" max="32767" attributes="0"/>
-                  <Component id="btn_addstud" min="-2" pref="30" max="-2" attributes="0"/>
+                  <EmptySpace pref="49" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lbl_newstudname" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_newstudname" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lbl_regcourseid" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbox_regcourseid" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbl_regyear" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbox_regyear" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lbl_regdate" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_regdate" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btn_addstud" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="btn_updatstud" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                      <Component id="btn_delstud" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                  </Group>
               </Group>
           </Group>
         </DimensionLayout>
@@ -174,97 +224,97 @@
             <Property name="name" type="java.lang.String" value="txt_newstud_DOB" noResource="true"/>
           </Properties>
         </Component>
-      </SubComponents>
-    </Container>
-    <Container class="javax.swing.JPanel" name="jPanel2">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="cc" red="ff" type="rgb"/>
-        </Property>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Student">
-              <Font PropertyName="font" name="Castellar" size="24" style="1"/>
-              <Color PropertyName="color" blue="33" green="0" red="ff" type="rgb"/>
-            </TitledBorder>
-          </Border>
-        </Property>
-        <Property name="name" type="java.lang.String" value="" noResource="true"/>
-      </Properties>
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="btn_updatstud" min="-2" pref="50" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btn_delstud" min="-2" pref="70" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lbl_studname" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txt_studname" min="-2" pref="152" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="lbl_stud_DOB" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txt_stud_DOB" min="-2" pref="131" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="lbl_studid" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="txt_studid" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace pref="214" max="32767" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lbl_studname" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txt_studname" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lbl_studid" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txt_studid" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btn_updatstud" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                      <Component id="btn_delstud" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                      <Component id="txt_stud_DOB" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lbl_stud_DOB" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="32767" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-      <SubComponents>
-        <Component class="javax.swing.JLabel" name="lbl_studname">
+        <Component class="javax.swing.JLabel" name="lbl_studid">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Times New Roman" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Name:"/>
-            <Property name="name" type="java.lang.String" value="lbl_studname" noResource="true"/>
+            <Property name="text" type="java.lang.String" value="Student ID: "/>
+            <Property name="name" type="java.lang.String" value="lbl_studid" noResource="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lbl_stud_DOB">
+        <Component class="javax.swing.JTextField" name="txt_studid">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="ff" red="cc" type="rgb"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="txt_studid" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbl_regcourseid">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Times New Roman" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Date of Birth:"/>
-            <Property name="name" type="java.lang.String" value="lbl_stud_DOB" noResource="true"/>
+            <Property name="text" type="java.lang.String" value="Course ID:"/>
+            <Property name="name" type="java.lang.String" value="lbl_regcourseid" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cbox_regcourseid">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="ff" red="cc" type="rgb"/>
+            </Property>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="1">
+                <StringItem index="0" value="CS101"/>
+              </StringArray>
+            </Property>
+            <Property name="name" type="java.lang.String" value="cbox_regcourseid" noResource="true"/>
+          </Properties>
+          <Events>
+            <EventHandler event="componentAdded" listener="java.awt.event.ContainerListener" parameters="java.awt.event.ContainerEvent" handler="cbox_regcourseidComponentAdded"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbox_regcourseidActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbl_regyear">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Year:"/>
+            <Property name="name" type="java.lang.String" value="lbl_regyear" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cbox_regyear">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="ff" red="cc" type="rgb"/>
+            </Property>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="3">
+                <StringItem index="0" value="2016"/>
+                <StringItem index="1" value="2017"/>
+                <StringItem index="2" value="2018"/>
+              </StringArray>
+            </Property>
+            <Property name="name" type="java.lang.String" value="cbox_regyear" noResource="true"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbl_regdate">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Date"/>
+            <Property name="name" type="java.lang.String" value="lbl_regdate" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txt_regdate">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="ff" red="cc" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="14" style="0"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="txt_regdate" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btn_updatstud">
@@ -312,229 +362,6 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_delstudActionPerformed"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txt_studname">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="ff" red="cc" type="rgb"/>
-            </Property>
-            <Property name="name" type="java.lang.String" value="txt_studname" noResource="true"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JFormattedTextField" name="txt_stud_DOB">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="ff" red="cc" type="rgb"/>
-            </Property>
-            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-              <Format format="dd&apos;/&apos;MM&apos;/&apos;yyyy" subtype="-1" type="1"/>
-            </Property>
-            <Property name="toolTipText" type="java.lang.String" value=""/>
-            <Property name="name" type="java.lang.String" value="txt_stud_DOB" noResource="true"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lbl_studid">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="14" style="0"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Student ID: "/>
-            <Property name="name" type="java.lang.String" value="lbl_studid" noResource="true"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txt_studid">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="ff" red="cc" type="rgb"/>
-            </Property>
-            <Property name="name" type="java.lang.String" value="txt_studid" noResource="true"/>
-          </Properties>
-        </Component>
-      </SubComponents>
-    </Container>
-    <Container class="javax.swing.JPanel" name="jPanel5">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="cc" red="ff" type="rgb"/>
-        </Property>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Register ">
-              <Font PropertyName="font" name="Castellar" size="24" style="1"/>
-              <Color PropertyName="color" blue="33" green="0" red="ff" type="rgb"/>
-            </TitledBorder>
-          </Border>
-        </Property>
-      </Properties>
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="lbl_regstudid" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txt_regstudid" min="-2" pref="134" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="lbl_regcourseid" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="cbox_regcourseid" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="lbl_regyear" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="cbox_regyear" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="lbl_regdate" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txt_regdate" min="-2" pref="150" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="btn_addregister" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="32767" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lbl_regstudid" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txt_regstudid" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lbl_regcourseid" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cbox_regcourseid" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lbl_regyear" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cbox_regyear" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lbl_regdate" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txt_regdate" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="7" max="32767" attributes="0"/>
-                  <Component id="btn_addregister" min="-2" pref="30" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-      <SubComponents>
-        <Component class="javax.swing.JLabel" name="lbl_regstudid">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="14" style="0"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Student ID:"/>
-            <Property name="name" type="java.lang.String" value="lbl_regstudid" noResource="true"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txt_regstudid">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="ff" red="cc" type="rgb"/>
-            </Property>
-            <Property name="name" type="java.lang.String" value="txt_stu_ID" noResource="true"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lbl_regcourseid">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="14" style="0"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Course ID:"/>
-            <Property name="name" type="java.lang.String" value="lbl_regcourseid" noResource="true"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="cbox_regcourseid">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="ff" red="cc" type="rgb"/>
-            </Property>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
-              </StringArray>
-            </Property>
-            <Property name="name" type="java.lang.String" value="cbox_regcourseid" noResource="true"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbox_regcourseidActionPerformed"/>
-          </Events>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lbl_regyear">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="14" style="0"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Year:"/>
-            <Property name="name" type="java.lang.String" value="lbl_regyear" noResource="true"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="cbox_regyear">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="ff" red="cc" type="rgb"/>
-            </Property>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
-                <StringItem index="0" value="2016"/>
-                <StringItem index="1" value="2017"/>
-                <StringItem index="2" value="2018"/>
-              </StringArray>
-            </Property>
-            <Property name="name" type="java.lang.String" value="cbox_regyear" noResource="true"/>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lbl_regdate">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="14" style="0"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Date"/>
-            <Property name="name" type="java.lang.String" value="lbl_regdate" noResource="true"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="btn_addregister">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="14" style="0"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="cc" red="0" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="ADD"/>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-                <EtchetBorder>
-                  <Color PropertyName="highlight" blue="0" green="ff" red="0" type="rgb"/>
-                  <Color PropertyName="shadow" blue="0" green="ff" red="ff" type="rgb"/>
-                </EtchetBorder>
-              </Border>
-            </Property>
-            <Property name="name" type="java.lang.String" value="btn_addregister" noResource="true"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_addregisterActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txt_regdate">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="ff" red="cc" type="rgb"/>
-            </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="14" style="0"/>
-            </Property>
-            <Property name="name" type="java.lang.String" value="txt_regdate" noResource="true"/>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>

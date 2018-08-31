@@ -5,7 +5,14 @@
  */
 package edu.cityu.ces.gui;
 
+import com.mongodb.client.MongoCollection;
+import org.bson.Document;
+import com.mongodb.client.MongoDatabase;
+
+import edu.cityu.ces.SpringMongoConfiguration;
+import edu.cityu.ces.dao.CourseRepository;
 import edu.cityu.ces.manager.CourseEnrollmentManager;
+import edu.cityu.ces.domain.Course;
 
 /**
  *
@@ -87,10 +94,14 @@ public class Search_Panel extends javax.swing.JPanel {
         cbox_searchdeptid.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbox_searchdeptid.setName("cbox_searchdeptid"); // NOI18N
 
-        cbox_searchcourse.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbox_searchcourse.setName("cbox_searchcourse"); // NOI18N
+        cbox_searchcourse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbox_searchcourseActionPerformed(evt);
+            }
+        });
 
-        rbtn_searchpop.setText("jRadioButton1");
+        rbtn_searchpop.setText("Yes");
         rbtn_searchpop.setName("rbtn_searchpop"); // NOI18N
 
         txt_searchstdname.setName("txt_searchstdname"); // NOI18N
@@ -129,7 +140,7 @@ public class Search_Panel extends javax.swing.JPanel {
                                 .addComponent(lbl_searchstdid)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txt_searchstdid, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lbl_searchyear)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(cbox_searchyear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -177,7 +188,13 @@ public class Search_Panel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cbox_searchcourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbox_searchcourseActionPerformed
+        // TODO add your handling code here:
+        Course course = courseEnrollmentManager.findCourseByCourseID("ACCT201");
+        course.getTitle();
+    }//GEN-LAST:event_cbox_searchcourseActionPerformed
 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_list;
     private javax.swing.JButton btn_search;

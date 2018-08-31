@@ -41,7 +41,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="356" max="32767" attributes="0"/>
+              <EmptySpace pref="283" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -54,7 +54,7 @@
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="New Course">
+            <TitledBorder title="Course">
               <Font PropertyName="font" name="Castellar" size="24" style="1"/>
               <Color PropertyName="color" blue="ff" green="0" red="33" type="rgb"/>
             </TitledBorder>
@@ -68,25 +68,51 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="lbl_course_ID" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txt_ncoruse_id" min="-2" pref="131" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="lbl_ncourse_title" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txt_ncrouse_title" min="-2" pref="210" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="lbl_course_lv" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="cbox_nlevel" min="-2" max="-2" attributes="0"/>
-                      </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="btn_crousecreate" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btn_courseupdate" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btn_coursedelete" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="lbl_classsize" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="txt_classsize" min="-2" pref="26" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="lbl_offeryear" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="lbl_course_ID" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="txt_ncoruse_id" min="-2" pref="131" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="lbl_ncourse_title" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="txt_ncrouse_title" min="-2" pref="210" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="lbl_course_lv" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="cbox_nlevel" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="cbox_offeryear" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="lbl_avaplace" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="cbox_avaplace" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="lbl_numofenrolstud" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="cbox_numofenrolstud" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="134" max="32767" attributes="0"/>
@@ -105,13 +131,29 @@
                       <Component id="lbl_course_lv" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="cbox_nlevel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lbl_classsize" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_classsize" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbl_offeryear" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbox_offeryear" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lbl_numofenrolstud" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbox_numofenrolstud" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btn_crousecreate" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btn_courseupdate" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btn_coursedelete" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lbl_avaplace" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbox_avaplace" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btn_coursedelete" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_courseupdate" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_crousecreate" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
           </Group>
         </DimensionLayout>
@@ -201,6 +243,102 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_coursedeleteActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbl_classsize">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Classsize"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="name" type="java.lang.String" value="lbl_classsize" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txt_classsize">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="14" style="0"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="txt_classsize" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbl_offeryear">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Year:"/>
+            <Property name="name" type="java.lang.String" value="lbl_offeryear" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cbox_offeryear">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="14" style="0"/>
+            </Property>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="4">
+                <StringItem index="0" value="2016"/>
+                <StringItem index="1" value="2017"/>
+                <StringItem index="2" value="2018"/>
+                <StringItem index="3" value="2019"/>
+              </StringArray>
+            </Property>
+            <Property name="name" type="java.lang.String" value="cbox_offeryear" noResource="true"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbl_numofenrolstud">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Number of Enrolled Student:"/>
+            <Property name="name" type="java.lang.String" value="lbl_numofenrolstud" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbl_avaplace">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Available Place:"/>
+            <Property name="name" type="java.lang.String" value="lbl_avaplace" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cbox_numofenrolstud">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="4">
+                <StringItem index="0" value="Item 1"/>
+                <StringItem index="1" value="Item 2"/>
+                <StringItem index="2" value="Item 3"/>
+                <StringItem index="3" value="Item 4"/>
+              </StringArray>
+            </Property>
+            <Property name="name" type="java.lang.String" value="cbox_numofenrolstud" noResource="true"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cbox_avaplace">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="4">
+                <StringItem index="0" value="Item 1"/>
+                <StringItem index="1" value="Item 2"/>
+                <StringItem index="2" value="Item 3"/>
+                <StringItem index="3" value="Item 4"/>
+              </StringArray>
+            </Property>
+            <Property name="name" type="java.lang.String" value="cbox_avaplace" noResource="true"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
