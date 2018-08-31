@@ -8,6 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import edu.cityu.ces.SpringMongoConfiguration;
+import edu.cityu.ces.domain.Course;
 import edu.cityu.ces.domain.Department;
 import edu.cityu.ces.manager.CourseEnrollmentManager;
 
@@ -32,6 +33,12 @@ public class TestCourseEnrollmentManager {
 		
 		courseEnrollmentManager.deleteDepartment(newDepartment);;
 		System.out.println("Deleted Department = " + newDepartment.toString());
+	}
+	
+	@Test
+	public void testFindCourseByCourseID() {
+		Course course = courseEnrollmentManager.findCourseByCourseID("CS101");
+		System.out.println("Course retrieved: " + course.toString());
 	}
 	
 	@Test
