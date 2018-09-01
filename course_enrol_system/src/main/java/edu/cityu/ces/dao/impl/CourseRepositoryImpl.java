@@ -27,18 +27,16 @@ public class CourseRepositoryImpl implements CourseRepositoryCustom {
 	}
 	
 	@Override
-	public int getTotalStudentByDeptIdAndOfferYear(String deptID, String offerYear) {
+	public List<Course> getTotalStudentByDeptIdAndOfferYear(String deptID, String offerYear) {
 		Query query = new Query();
 		
-		query.addCriteria(Criteria.where("deptID").is(deptID).andOperator(Criteria.where("offer.year").is(offerYear))).fields().include("offer.$");
+		query.addCriteria(Criteria.where("deptID").is(deptID).andOperator(Criteria.where("offer.year").is(offerYear)));
+		query.fields().include("deptID");
+		query.fields().include("courseID");
+		query.fields().include("title");
+		query.fields().include("level");
+		query.fields().include("offer.$");
 		
-		List<Offer> offerList = mongoTemplate.find(query, Offer.class);
-		
-		for (Offer offer : offerList) {
-			System.out.println(offer.getNumOfEnrolStud());
-		}
-		
-		return 0;
+		return mongoTemplate.find(query, Course.class);
 	}
-
 }

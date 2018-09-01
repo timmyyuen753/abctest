@@ -32,11 +32,15 @@ public interface CourseEnrollmentManager {
 	
 	public List<Course> findCourseByDepartmentID(String departmentID);
 	
-	public List<Course> findCourseByDepartmentIDAndYear(String departmentID, String year);
-	
 	public List<Course> findCourseByTitle(String title);
 	
 	public List<Course> findCourseByLevel(String level);
+	
+	//Query a & b
+	public List<Course> findCourseByDepartmentIDAndYear(String departmentID, String year);
+	
+	//Query d
+	public List<Course> findNumberOfStudentsByDeptIdAndOfferYear(String deptID, String offerYear);
 	
 	public int generateNewStudentID();
 	

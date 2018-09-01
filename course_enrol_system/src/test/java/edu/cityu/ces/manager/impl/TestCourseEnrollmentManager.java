@@ -182,4 +182,14 @@ public class TestCourseEnrollmentManager {
 			}
 		}
 	}
+	
+	@Test
+	public void testFindNumberOfStudentsByDeptIdAndOfferYear() {
+		String departmentID = "IS";
+		String year = "2017";
+		List<Course> courseList = courseEnrollmentManager.findNumberOfStudentsByDeptIdAndOfferYear(departmentID, year);
+		for (Course course: courseList) {
+			System.out.println("Course: " + course.toString() + " Number of Enrooled Students: " + course.getOffer().get(0).getNumOfEnrolStud());
+		}
+	}
 }

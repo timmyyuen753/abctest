@@ -201,4 +201,9 @@ public class CourseEnrollmentManagerImpl implements CourseEnrollmentManager {
 	public List<Course> findCourseByDepartmentIDAndYear(String departmentID, String year) {
 		return courseRepository.findByDeptIdAndOfferYear(departmentID, year);
 	}
+
+	@Override
+	public List<Course> findNumberOfStudentsByDeptIdAndOfferYear(String departmentID, String year) {
+		return courseRepository.getTotalStudentByDeptIdAndOfferYear(departmentID, year);
+	}
 }

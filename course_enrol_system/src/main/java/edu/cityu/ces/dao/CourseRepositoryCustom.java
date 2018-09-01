@@ -9,6 +9,5 @@ import edu.cityu.ces.domain.Course;
 @Repository
 public interface CourseRepositoryCustom {
 	
-	public int getTotalStudentByDeptIdAndOfferYear(String deptID, String offerYear);
-
+	public List<Course> getTotalStudentByDeptIdAndOfferYear(String deptID, String offerYear);
 }
