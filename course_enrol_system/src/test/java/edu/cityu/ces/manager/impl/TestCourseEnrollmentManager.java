@@ -86,7 +86,6 @@ public class TestCourseEnrollmentManager {
 	
 	@Test
 	public void tesFindCourseByCS2016() {
-		//Query b-1
 		String departmentID = "CS";
 		String year = "2016";
 		List<Course> courseList = courseEnrollmentManager.findCourseByDepartmentIDAndYear(departmentID, year);
@@ -102,7 +101,6 @@ public class TestCourseEnrollmentManager {
 	
 	@Test
 	public void tesFindCourseByIS2016() {
-		//Query b-2
 		String departmentID = "IS";
 		String year = "2016";
 		List<Course> courseList = courseEnrollmentManager.findCourseByDepartmentIDAndYear(departmentID, year);
@@ -118,6 +116,7 @@ public class TestCourseEnrollmentManager {
 	
 	@Test
 	public void testFindCourseCSIS2016() {
+		//Query b
 		List<String> deptIDList = new ArrayList<String>();
 		deptIDList.add("CS");
 		deptIDList.add("IS");
@@ -135,7 +134,6 @@ public class TestCourseEnrollmentManager {
 	
 	@Test
 	public void tesFindMostPopularCourses2016() {
-		//Query c 
 		List<Course> courseList = courseEnrollmentManager.listAllCourses();
 		int max = 0;
 		Course mostPopularCourse  = new Course();
@@ -173,7 +171,6 @@ public class TestCourseEnrollmentManager {
 	
 	@Test
 	public void testListCourseEnrolledCS2016ChanTaiMan() {
-		//Query e
 		String studentName = "CHAN TAI MAN";
 		String departmentID = "CS";
 		String year = "2016";
