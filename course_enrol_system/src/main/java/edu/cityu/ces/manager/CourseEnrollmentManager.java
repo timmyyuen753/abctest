@@ -36,8 +36,11 @@ public interface CourseEnrollmentManager {
 	
 	public List<Course> findCourseByLevel(String level);
 	
-	//Query a & b
+	//Query a
 	public List<Course> findCourseByDepartmentIDAndYear(String departmentID, String year);
+	
+	//Query b
+	public List<Course> findCourseByMultipleDepartmentIDAndYear(List<String> departmentIDList, String year);
 	
 	//Query d
 	public List<Course> findNumberOfStudentsByDeptIdAndOfferYear(String deptID, String offerYear);

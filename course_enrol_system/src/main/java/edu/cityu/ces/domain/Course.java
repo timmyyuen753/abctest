@@ -27,7 +27,7 @@ public class Course {
 	public Course() {}
 	
 	public Course(String deptID, String courseID, String title, String level, List<Offer> offer) {
-                this.deptID = deptID;
+        this.deptID = deptID;
 		this.courseID = courseID;
 		this.title = title;
 		this.level = level;

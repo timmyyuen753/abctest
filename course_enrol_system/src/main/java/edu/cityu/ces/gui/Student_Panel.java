@@ -68,6 +68,7 @@ public class Student_Panel extends javax.swing.JPanel {
         btn_delstud = new javax.swing.JButton();
         txt_regcourseid = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        btn_studEdit = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 204, 204));
         setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -161,6 +162,15 @@ public class Student_Panel extends javax.swing.JPanel {
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Timmy\\Desktop\\新增資料夾 (2)\\course_enrol_system\\src\\main\\java\\edu\\cityu\\ces\\gui\\image\\cityu.png")); // NOI18N
 
+        btn_studEdit.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btn_studEdit.setText("Find");
+        btn_studEdit.setName("btn_studEdit"); // NOI18N
+        btn_studEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_studEditActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout newstudent_panelLayout = new javax.swing.GroupLayout(newstudent_panel);
         newstudent_panel.setLayout(newstudent_panelLayout);
         newstudent_panelLayout.setHorizontalGroup(
@@ -198,7 +208,9 @@ public class Student_Panel extends javax.swing.JPanel {
                         .addGap(38, 38, 38)
                         .addComponent(btn_updatstud, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(37, 37, 37)
-                        .addComponent(btn_delstud, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btn_delstud, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(btn_studEdit)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addContainerGap())
@@ -232,7 +244,8 @@ public class Student_Panel extends javax.swing.JPanel {
                         .addGroup(newstudent_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btn_addstud, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn_updatstud, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_delstud, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btn_delstud, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_studEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel1))
                 .addGap(813, 813, 813))
         );
@@ -341,10 +354,23 @@ public class Student_Panel extends javax.swing.JPanel {
         System.out.println("StudentID: " + txt_studid.getText() + " are deleted");
     }//GEN-LAST:event_btn_delstudActionPerformed
 
+    private void btn_studEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_studEditActionPerformed
+        // TODO add your handling code here:
+        Student student = new Student();
+        String stuedntid = txt_studid.getText();
+        int studentidnumber = Integer.parseInt(stuedntid);
+        student = courseEnrollmentManager.findStudentByStudentID(studentidnumber);
+        txt_newstudname.setText(student.getStuName());
+        txt_newstud_DOB.setText(student.getDob().toString());
+        System.out.print(student.getEnrolled());
+        
+    }//GEN-LAST:event_btn_studEditActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_addstud;
     private javax.swing.JButton btn_delstud;
+    private javax.swing.JButton btn_studEdit;
     private javax.swing.JButton btn_updatstud;
     private javax.swing.JComboBox<String> cbox_regyear;
     private javax.swing.JLabel jLabel1;

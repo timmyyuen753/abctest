@@ -39,4 +39,17 @@ public class CourseRepositoryImpl implements CourseRepositoryCustom {
 		
 		return mongoTemplate.find(query, Course.class);
 	}
+
+	@Override
+	public List<Course> findCourseByMultipleDepartmentIDAndYear(List<String> deptIDList, String offerYear) {
+		Query query = new Query();
+		query.addCriteria(Criteria.where("deptID").in(deptIDList).andOperator(Criteria.where("offer.year").is(offerYear)));
+		query.fields().include("deptID");
+		query.fields().include("courseID");
+		query.fields().include("title");
+		query.fields().include("level");
+		query.fields().include("offer.$");
+		
+		return mongoTemplate.find(query, Course.class);
+	}
 }

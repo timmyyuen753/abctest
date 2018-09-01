@@ -98,6 +98,8 @@
                   <Component id="btn_deptupdate" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="btn_deptdelete" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btn_edit" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -122,6 +124,7 @@
                       <Component id="btn_deptcreate" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btn_deptupdate" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btn_deptdelete" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_edit" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -204,6 +207,19 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_deptdeleteActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btn_edit">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Times New Roman" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Find"/>
+            <Property name="actionCommand" type="java.lang.String" value="Edit"/>
+            <Property name="name" type="java.lang.String" value="btn_edit" noResource="true"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_editActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

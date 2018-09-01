@@ -11,6 +11,8 @@ import edu.cityu.ces.domain.Offer;
 import edu.cityu.ces.manager.CourseEnrollmentManager;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 /**
  *
@@ -59,6 +61,7 @@ public class Course_Panel extends javax.swing.JPanel {
         lbl_coursebydeptid = new javax.swing.JLabel();
         txt_coursebydeptid = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        btn_courseedit = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -151,6 +154,14 @@ public class Course_Panel extends javax.swing.JPanel {
 
         jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Timmy\\Desktop\\新增資料夾 (2)\\course_enrol_system\\src\\main\\java\\edu\\cityu\\ces\\gui\\image\\cityu.png")); // NOI18N
 
+        btn_courseedit.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btn_courseedit.setText("Find");
+        btn_courseedit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_courseeditActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -188,10 +199,6 @@ public class Course_Panel extends javax.swing.JPanel {
                                 .addComponent(cbox_offeryear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lbl_numofenrolstud)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_numofenrolstud, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(lbl_avaplace)
@@ -202,9 +209,16 @@ public class Course_Panel extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btn_courseupdate)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btn_coursedelete)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2)))
+                                .addComponent(btn_coursedelete)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_courseedit)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lbl_numofenrolstud)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_numofenrolstud, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -231,19 +245,17 @@ public class Course_Panel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lbl_numofenrolstud))
                     .addComponent(txt_numofenrolstud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbl_avaplace)
+                    .addComponent(txt_avaplace, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lbl_avaplace)
-                            .addComponent(txt_avaplace, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_coursedelete)
-                            .addComponent(btn_courseupdate)
-                            .addComponent(btn_crousecreate)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel2))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btn_coursedelete)
+                        .addComponent(btn_courseupdate)
+                        .addComponent(btn_crousecreate)
+                        .addComponent(btn_courseedit))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -260,7 +272,7 @@ public class Course_Panel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(208, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -336,9 +348,19 @@ public class Course_Panel extends javax.swing.JPanel {
         System.out.println("Course has been deleted");
     }//GEN-LAST:event_btn_coursedeleteActionPerformed
 
+    private void btn_courseeditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_courseeditActionPerformed
+        // TODO add your handling code here:
+        Course course = new Course();
+        course = courseEnrollmentManager.findCourseByCourseID(txt_ncoruse_id.getText());
+        txt_ncrouse_title.setText(course.getTitle());
+        txt_coursebydeptid.setText(course.getDeptID());
+        System.out.print(course.getOffer());
+    }//GEN-LAST:event_btn_courseeditActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_coursedelete;
+    private javax.swing.JButton btn_courseedit;
     private javax.swing.JButton btn_courseupdate;
     private javax.swing.JButton btn_crousecreate;
     private javax.swing.ButtonGroup buttonGroup1;

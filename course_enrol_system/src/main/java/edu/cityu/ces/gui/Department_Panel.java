@@ -42,6 +42,7 @@ public class Department_Panel extends javax.swing.JPanel {
         btn_deptcreate = new javax.swing.JButton();
         btn_deptupdate = new javax.swing.JButton();
         btn_deptdelete = new javax.swing.JButton();
+        btn_edit = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
@@ -97,6 +98,16 @@ public class Department_Panel extends javax.swing.JPanel {
             }
         });
 
+        btn_edit.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btn_edit.setText("Find");
+        btn_edit.setActionCommand("Edit");
+        btn_edit.setName("btn_edit"); // NOI18N
+        btn_edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_editActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -123,6 +134,8 @@ public class Department_Panel extends javax.swing.JPanel {
                 .addComponent(btn_deptupdate)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_deptdelete)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_edit)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -142,7 +155,8 @@ public class Department_Panel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_deptcreate)
                     .addComponent(btn_deptupdate)
-                    .addComponent(btn_deptdelete)))
+                    .addComponent(btn_deptdelete)
+                    .addComponent(btn_edit)))
         );
 
         jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Timmy\\Desktop\\新增資料夾 (2)\\course_enrol_system\\src\\main\\java\\edu\\cityu\\ces\\gui\\image\\cityu.png")); // NOI18N
@@ -206,11 +220,20 @@ public class Department_Panel extends javax.swing.JPanel {
         System.out.println("Department has been deleted.");
     }//GEN-LAST:event_btn_deptdeleteActionPerformed
 
+    private void btn_editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editActionPerformed
+        // TODO add your handling code here:
+        Department department = new Department();
+        department = courseEnrollmentManager.findDepartmentByDepartmentID(txt_ndepartment.getText());
+        txt_ndeptname.setText(department.getDeptName());
+        txt_deptloc.setText(department.getLocation());
+    }//GEN-LAST:event_btn_editActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_deptcreate;
     private javax.swing.JButton btn_deptdelete;
     private javax.swing.JButton btn_deptupdate;
+    private javax.swing.JButton btn_edit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

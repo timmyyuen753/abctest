@@ -117,6 +117,23 @@ public class TestCourseEnrollmentManager {
 	}
 	
 	@Test
+	public void testFindCourseCSIS2016() {
+		List<String> deptIDList = new ArrayList<String>();
+		deptIDList.add("CS");
+		deptIDList.add("IS");
+		String year = "2016";
+		List<Course> courseList = courseEnrollmentManager.findCourseByMultipleDepartmentIDAndYear(deptIDList, year);
+		for (Course course : courseList) {
+			System.out.println("Course: " + course.toString());
+			for (Offer offer : course.getOffer()) {
+				if (offer.getYear().equalsIgnoreCase(year)) {
+					System.out.println("Offer: " + offer.toString());
+				}
+			}
+		}
+	}
+	
+	@Test
 	public void tesFindMostPopularCourses2016() {
 		//Query c 
 		List<Course> courseList = courseEnrollmentManager.listAllCourses();
