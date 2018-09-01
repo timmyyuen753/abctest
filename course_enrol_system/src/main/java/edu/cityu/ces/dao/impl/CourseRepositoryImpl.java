@@ -41,6 +41,14 @@ public class CourseRepositoryImpl implements CourseRepositoryCustom {
 		return mongoTemplate.find(query, Course.class);
 	}
 	
+
+	@Override
+	public List<Course> findCourseByMultipleCourseIDAndDepartmentID(List<String> courseIDList, String departmentID) {
+		Query query = new Query();
+		query.addCriteria(Criteria.where("deptID").is(departmentID).andOperator(Criteria.where("courseID").in(courseIDList)));
+		return mongoTemplate.find(query, Course.class);
+	}
+	
 	@Override
 	public int getMaxNumOfEnrolledStudents(String offerYear) {
 		
@@ -71,4 +79,5 @@ public class CourseRepositoryImpl implements CourseRepositoryCustom {
 		
 		return mongoTemplate.find(query, Course.class);
 	}
+
 }

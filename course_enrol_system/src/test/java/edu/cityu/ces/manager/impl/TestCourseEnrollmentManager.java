@@ -60,7 +60,7 @@ public class TestCourseEnrollmentManager {
 	
 	@Test
 	public void testEnrollCourse() {
-		courseEnrollmentManager.enrollCourse("IS101", "2018", 12340008);
+		courseEnrollmentManager.enrollCourse("CS201", "2018", 12340009);
 	}
 	
 	@Test
@@ -160,30 +160,14 @@ public class TestCourseEnrollmentManager {
 	}
 	
 	@Test
-	public void testListCourseEnrolledCS2016ChanTaiMan() {
+	public void testFindCourseByStudentNameEnrollYearDepartmentID() {
+		//Query e
 		String studentName = "CHAN TAI MAN";
+		String enrollYear = "2016";
 		String departmentID = "CS";
-		String year = "2016";
-		
-		List<String> courseIDList = new ArrayList<String>();
-		List<Student> studentList = courseEnrollmentManager.findStudentByStudentName(studentName);
-		for (Student student : studentList) {
-			List<Enrolled> enrolledList = student.getEnrolled();
-			for (Enrolled enrolled : enrolledList) {
-				if (enrolled.getYear().equalsIgnoreCase(year)) {
-					courseIDList.add(enrolled.getCourseID());
-				}
-			}
-		}
-		
-		List<Course> courseList = courseEnrollmentManager.findCourseByDepartmentID(departmentID);
-		System.out.println("CS Courses Enrolled by : " + studentName);
-		for (String courseID : courseIDList) {
-			for (Course course : courseList) {
-				if (courseID.equalsIgnoreCase(course.getCourseID())) {
-					System.out.println("Course: " + course.toString());
-				}
-			}
+		List<Course> courseList = courseEnrollmentManager.findCourseByStudentNameEnrollYearDepartmentID(studentName, enrollYear, departmentID);
+		for (Course course : courseList) {
+			System.out.println("Course: " + course.toString());
 		}
 	}
 	

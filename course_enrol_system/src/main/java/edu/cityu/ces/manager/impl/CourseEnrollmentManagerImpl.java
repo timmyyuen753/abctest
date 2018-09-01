@@ -1,5 +1,6 @@
 package edu.cityu.ces.manager.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -216,5 +217,20 @@ public class CourseEnrollmentManagerImpl implements CourseEnrollmentManager {
 	public List<Course> findMostPopularCourseByOfferYear(String offerYear) {
 		int maxNumOfEnrolStudent = courseRepository.getMaxNumOfEnrolledStudents(offerYear);
 		return courseRepository.findByOfferYearAndNumOfEnrolStud(offerYear, maxNumOfEnrolStudent);
+	}
+
+	@Override
+	public List<Course> findCourseByStudentNameEnrollYearDepartmentID(String studentName, String enrollYear, String departmentID) {
+		List<String> courseIDList = new ArrayList<String>();
+		List<Student> studentList = studentRepository.findByStudentName(studentName);
+		for (Student student : studentList)  {
+			for (Enrolled enrolled : student.getEnrolled()) {
+				if (enrolled.getYear().equalsIgnoreCase(enrollYear)) {
+					courseIDList.add(enrolled.getCourseID());
+				}
+			}
+		}
+		
+		return courseRepository.findCourseByMultipleCourseIDAndDepartmentID(courseIDList, departmentID);
 	}
 }
