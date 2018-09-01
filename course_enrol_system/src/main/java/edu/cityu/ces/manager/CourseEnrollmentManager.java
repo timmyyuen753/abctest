@@ -15,6 +15,8 @@ public interface CourseEnrollmentManager {
 	public void deleteDepartment(Department department);
 	
 	public Department findDepartmentByDepartmentID(String departmentID);
+	
+	public List<Department> listAllDepartments();
 
 	public List<Department> findDepartmentByDepartmentName(String departmentName);
 	
@@ -29,6 +31,8 @@ public interface CourseEnrollmentManager {
 	public List<Course> listAllCourses();
 	
 	public List<Course> findCourseByDepartmentID(String departmentID);
+	
+	public List<Course> findCourseByDepartmentIDAndYear(String departmentID, String year);
 	
 	public List<Course> findCourseByTitle(String title);
 	

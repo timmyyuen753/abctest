@@ -24,6 +24,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import edu.cityu.ces.domain.Enrolled;
+import java.util.ArrayList;
 import java.util.List;
 /**
  *
@@ -59,13 +60,14 @@ public class Student_Panel extends javax.swing.JPanel {
         lbl_studid = new javax.swing.JLabel();
         txt_studid = new javax.swing.JTextField();
         lbl_regcourseid = new javax.swing.JLabel();
-        cbox_regcourseid = new javax.swing.JComboBox<>();
         lbl_regyear = new javax.swing.JLabel();
         cbox_regyear = new javax.swing.JComboBox<>();
         lbl_regdate = new javax.swing.JLabel();
         txt_regdate = new javax.swing.JTextField();
         btn_updatstud = new javax.swing.JButton();
         btn_delstud = new javax.swing.JButton();
+        txt_regcourseid = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 204, 204));
         setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -115,20 +117,6 @@ public class Student_Panel extends javax.swing.JPanel {
         lbl_regcourseid.setText("Course ID:");
         lbl_regcourseid.setName("lbl_regcourseid"); // NOI18N
 
-        cbox_regcourseid.setBackground(new java.awt.Color(204, 255, 204));
-        cbox_regcourseid.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CS101" }));
-        cbox_regcourseid.setName("cbox_regcourseid"); // NOI18N
-        cbox_regcourseid.addContainerListener(new java.awt.event.ContainerAdapter() {
-            public void componentAdded(java.awt.event.ContainerEvent evt) {
-                cbox_regcourseidComponentAdded(evt);
-            }
-        });
-        cbox_regcourseid.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbox_regcourseidActionPerformed(evt);
-            }
-        });
-
         lbl_regyear.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         lbl_regyear.setText("Year:");
         lbl_regyear.setName("lbl_regyear"); // NOI18N
@@ -167,50 +155,53 @@ public class Student_Panel extends javax.swing.JPanel {
             }
         });
 
+        txt_regcourseid.setBackground(new java.awt.Color(204, 255, 204));
+        txt_regcourseid.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        txt_regcourseid.setName("txt_regcourseid"); // NOI18N
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Timmy\\Desktop\\新增資料夾 (2)\\course_enrol_system\\src\\main\\java\\edu\\cityu\\ces\\gui\\image\\cityu.png")); // NOI18N
+
         javax.swing.GroupLayout newstudent_panelLayout = new javax.swing.GroupLayout(newstudent_panel);
         newstudent_panel.setLayout(newstudent_panelLayout);
         newstudent_panelLayout.setHorizontalGroup(
             newstudent_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(newstudent_panelLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(newstudent_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(newstudent_panelLayout.createSequentialGroup()
-                        .addComponent(btn_addstud, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn_updatstud, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(newstudent_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, newstudent_panelLayout.createSequentialGroup()
+                                .addComponent(lbl_studid)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txt_studid, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, newstudent_panelLayout.createSequentialGroup()
+                                .addComponent(lbl_newstudname)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txt_newstudname, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, newstudent_panelLayout.createSequentialGroup()
+                                .addComponent(lbl_regcourseid)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txt_regcourseid, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, newstudent_panelLayout.createSequentialGroup()
+                                .addComponent(lbl_regdate)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txt_regdate)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_delstud, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(newstudent_panelLayout.createSequentialGroup()
-                        .addGap(219, 219, 219)
-                        .addComponent(lbl_regyear)
+                        .addGroup(newstudent_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lbl_newstud_DOB)
+                            .addComponent(lbl_regyear))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(newstudent_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(newstudent_panelLayout.createSequentialGroup()
-                                .addComponent(lbl_newstud_DOB)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txt_newstud_DOB, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(cbox_regyear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(194, Short.MAX_VALUE))
-            .addGroup(newstudent_panelLayout.createSequentialGroup()
-                .addGroup(newstudent_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txt_newstud_DOB, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbox_regyear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(newstudent_panelLayout.createSequentialGroup()
-                        .addComponent(lbl_studid)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_studid, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(newstudent_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(newstudent_panelLayout.createSequentialGroup()
-                            .addComponent(lbl_regdate)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txt_regdate, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(newstudent_panelLayout.createSequentialGroup()
-                            .addComponent(lbl_regcourseid)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(cbox_regcourseid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(newstudent_panelLayout.createSequentialGroup()
-                            .addComponent(lbl_newstudname)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txt_newstudname, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(btn_addstud, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addComponent(btn_updatstud, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
+                        .addComponent(btn_delstud, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addContainerGap())
         );
         newstudent_panelLayout.setVerticalGroup(
             newstudent_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,25 +212,29 @@ public class Student_Panel extends javax.swing.JPanel {
                     .addComponent(txt_studid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_newstud_DOB)
                     .addComponent(txt_newstud_DOB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(newstudent_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_newstudname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_newstudname)
-                    .addComponent(txt_newstudname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addGroup(newstudent_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_regcourseid)
-                    .addComponent(cbox_regcourseid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_regyear)
                     .addComponent(cbox_regyear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(newstudent_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_regdate)
-                    .addComponent(txt_regdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(147, 147, 147)
-                .addGroup(newstudent_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_addstud, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_updatstud, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_delstud, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lbl_regcourseid)
+                    .addComponent(txt_regcourseid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(newstudent_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(newstudent_panelLayout.createSequentialGroup()
+                        .addGroup(newstudent_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl_regdate)
+                            .addComponent(txt_regdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(66, 66, 66)
+                        .addGroup(newstudent_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btn_addstud, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_updatstud, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_delstud, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel1))
+                .addGap(813, 813, 813))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -255,7 +250,7 @@ public class Student_Panel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(newstudent_panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(newstudent_panel, javax.swing.GroupLayout.PREFERRED_SIZE, 460, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -263,11 +258,9 @@ public class Student_Panel extends javax.swing.JPanel {
     private void btn_addstudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addstudActionPerformed
         // TODO add your handling code here:
         Student student = new Student();
-        Enrolled enrolled = new Enrolled();
         student.setStudentID(courseEnrollmentManager.generateNewStudentID());
         student.setStuName(txt_newstudname.getText());
         String dataInString = txt_newstud_DOB.getText();
-        System.out.println("DOB string: " + dataInString);
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
         try {
             Date dob = formatter.parse(dataInString);
@@ -275,77 +268,86 @@ public class Student_Panel extends javax.swing.JPanel {
         } catch (ParseException ex) {
             Logger.getLogger(Student_Panel.class.getName()).log(Level.SEVERE, null, ex);
         }
-        String courseID = (String)cbox_regcourseid.getSelectedItem();
-        String year = (String)cbox_regyear.getSelectedItem();
-        enrolled.setCourseID(courseID);
+        Enrolled enrolled = new Enrolled();
+        String year = cbox_regyear.getSelectedItem().toString();
         enrolled.setYear(year);
-        String dateinstring = txt_regdate.getText();
-        try {
-            Date date = formatter.parse(dateinstring);
-            enrolled.setEnrollDate(date);
+        enrolled.setCourseID(txt_regcourseid.getText());
+        String enrolldateinstring = txt_regdate.getText();
+        try{
+            Date enrolldate = formatter.parse(enrolldateinstring);
+            enrolled.setEnrollDate(enrolldate);
         } catch (ParseException ex) {
             Logger.getLogger(Student_Panel.class.getName()).log(Level.SEVERE, null, ex);
         }
-        courseEnrollmentManager.enrollCourse(courseID, year,WIDTH);
+        List<Enrolled> enrolledlist = new ArrayList();
+        int i=0;
+        enrolledlist.add(i, enrolled);
+        i++;
+        student.setEnrolled(enrolledlist);
         courseEnrollmentManager.addStudent(student);
+        
+        System.out.println("Student are added.");
         
         
     }//GEN-LAST:event_btn_addstudActionPerformed
 
     private void btn_updatstudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_updatstudActionPerformed
         // TODO add your handling code here:
-        Student student = new Student();
-        if(courseEnrollmentManager.findStudentByStudentID(WIDTH).equals(txt_studid.getText())) {
-                  student.setStuName(txt_newstudname.getText());
+        Student oldStudent = new Student();
+        String stuedntid = txt_studid.getText();
+        int studentidnumber = Integer.parseInt(stuedntid);
+        oldStudent = courseEnrollmentManager.findStudentByStudentID(studentidnumber);
+        
+        Student newStudent = new Student();
+        newStudent.setStudentID(courseEnrollmentManager.generateNewStudentID());
+        newStudent.setStuName(txt_newstudname.getText());
         String dataInString = txt_newstud_DOB.getText();
-        System.out.println("Student has been updated !");
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
         try {
             Date dob = formatter.parse(dataInString);
-            student.setDob(dob);
-            courseEnrollmentManager.updateStudent(student, student);
+            newStudent.setDob(dob);
         } catch (ParseException ex) {
             Logger.getLogger(Student_Panel.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        Enrolled enrolled = new Enrolled();
+        String year = cbox_regyear.getSelectedItem().toString();
+        enrolled.setYear(year);
+        enrolled.setCourseID(txt_regcourseid.getText());
+        String enrolldateinstring = txt_regdate.getText();
+        try{
+            Date enrolldate = formatter.parse(enrolldateinstring);
+            enrolled.setEnrollDate(enrolldate);
+        } catch (ParseException ex) {
+            Logger.getLogger(Student_Panel.class.getName()).log(Level.SEVERE, null, ex);
         }
+        List<Enrolled> enrolledlist = new ArrayList();
+        int i=0;
+        enrolledlist.add(i, enrolled);
+        i++;
+        newStudent.setEnrolled(enrolledlist);
+
+        courseEnrollmentManager.updateStudent(oldStudent, newStudent);
+        System.out.println("Student " + txt_studid.getText() + " are updated.");
     }//GEN-LAST:event_btn_updatstudActionPerformed
 
     private void btn_delstudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_delstudActionPerformed
         // TODO add your handling code here:
         Student student = new Student();
-        if(String.valueOf(student.getStudentID()).equals(txt_studid.toString())) {
-            txt_studid.remove(this);
-        }
-        if(student.getStuName()== txt_newstudname.toString()){
-            txt_newstudname.remove(this);
-        }
-    }//GEN-LAST:event_btn_delstudActionPerformed
-
-    private void cbox_regcourseidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbox_regcourseidActionPerformed
-        // TODO add your handling code here:
-        Course course = new Course();
-        String cbox_regcourseid = course.getCourseID();
-    }//GEN-LAST:event_cbox_regcourseidActionPerformed
-
-    private void cbox_regcourseidComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_cbox_regcourseidComponentAdded
-        // TODO add your handling code here:
-        List<Course> courseList = courseEnrollmentManager.listAllCourses();
-        int i = 0;
-        for (Course course : courseList) {
-            cbox_regcourseid.getItemAt(i);
-            i++;
-        }
+        String stuedntid = txt_studid.getText();
+        int studentidnumber = Integer.parseInt(stuedntid);
+        student = courseEnrollmentManager.findStudentByStudentID(studentidnumber);
         
-    }//GEN-LAST:event_cbox_regcourseidComponentAdded
+        courseEnrollmentManager.deleteStudent(student);
+        System.out.println("StudentID: " + txt_studid.getText() + " are deleted");
+    }//GEN-LAST:event_btn_delstudActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_addstud;
     private javax.swing.JButton btn_delstud;
     private javax.swing.JButton btn_updatstud;
-    private javax.swing.JComboBox<String> cbox_regcourseid;
     private javax.swing.JComboBox<String> cbox_regyear;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lbl_newstud_DOB;
     private javax.swing.JLabel lbl_newstudname;
     private javax.swing.JLabel lbl_regcourseid;
@@ -355,6 +357,7 @@ public class Student_Panel extends javax.swing.JPanel {
     private javax.swing.JPanel newstudent_panel;
     private javax.swing.JTextField txt_newstud_DOB;
     private javax.swing.JTextField txt_newstudname;
+    private javax.swing.JTextField txt_regcourseid;
     private javax.swing.JTextField txt_regdate;
     private javax.swing.JTextField txt_studid;
     // End of variables declaration//GEN-END:variables

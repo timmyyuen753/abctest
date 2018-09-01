@@ -187,8 +187,18 @@ public class CourseEnrollmentManagerImpl implements CourseEnrollmentManager {
 		}
 	}
 
-        @Override
+    @Override
 	public List<Course> listAllCourses() {
 		return courseRepository.findAll();
+	}
+
+	@Override
+	public List<Department> listAllDepartments() {
+		return departmentRepository.findAll();
+	}
+
+	@Override
+	public List<Course> findCourseByDepartmentIDAndYear(String departmentID, String year) {
+		return courseRepository.findByDeptIdAndOfferYear(departmentID, year);
 	}
 }

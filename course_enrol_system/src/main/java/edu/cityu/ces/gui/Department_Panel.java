@@ -42,27 +42,35 @@ public class Department_Panel extends javax.swing.JPanel {
         btn_deptcreate = new javax.swing.JButton();
         btn_deptupdate = new javax.swing.JButton();
         btn_deptdelete = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 204, 255));
+        setForeground(new java.awt.Color(204, 204, 255));
         setName("department_panel"); // NOI18N
         setPreferredSize(new java.awt.Dimension(720, 480));
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Department"));
+        jPanel1.setBackground(new java.awt.Color(255, 204, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Department", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Castellar", 1, 18), new java.awt.Color(0, 0, 255))); // NOI18N
 
+        lbl_ndepartment.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         lbl_ndepartment.setText("Department ID:");
         lbl_ndepartment.setName("lbl_ndepartment"); // NOI18N
 
         txt_ndepartment.setName("txt_ndepartment"); // NOI18N
 
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel1.setText("Department Name:");
         jLabel1.setName("lbl_deptname"); // NOI18N
 
         txt_ndeptname.setName("txt_ndeptname"); // NOI18N
 
+        lbl_deptloc.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         lbl_deptloc.setText("Loccation:");
         lbl_deptloc.setName("lbl_deptloc"); // NOI18N
 
         txt_deptloc.setName("txt_deptloc"); // NOI18N
 
+        btn_deptcreate.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btn_deptcreate.setText("Create");
         btn_deptcreate.setName("btn_deptcreate"); // NOI18N
         btn_deptcreate.addActionListener(new java.awt.event.ActionListener() {
@@ -71,6 +79,7 @@ public class Department_Panel extends javax.swing.JPanel {
             }
         });
 
+        btn_deptupdate.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btn_deptupdate.setText("Update");
         btn_deptupdate.setName("btn_deptupdate"); // NOI18N
         btn_deptupdate.addActionListener(new java.awt.event.ActionListener() {
@@ -79,6 +88,7 @@ public class Department_Panel extends javax.swing.JPanel {
             }
         });
 
+        btn_deptdelete.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btn_deptdelete.setText("Delete");
         btn_deptdelete.setName("btn_deptdelete"); // NOI18N
         btn_deptdelete.addActionListener(new java.awt.event.ActionListener() {
@@ -106,7 +116,7 @@ public class Department_Panel extends javax.swing.JPanel {
                         .addComponent(lbl_deptloc)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_deptloc, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(btn_deptcreate)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -135,13 +145,19 @@ public class Department_Panel extends javax.swing.JPanel {
                     .addComponent(btn_deptdelete)))
         );
 
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Timmy\\Desktop\\新增資料夾 (2)\\course_enrol_system\\src\\main\\java\\edu\\cityu\\ces\\gui\\image\\cityu.png")); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel2)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -149,7 +165,9 @@ public class Department_Panel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(359, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addContainerGap(230, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -160,31 +178,32 @@ public class Department_Panel extends javax.swing.JPanel {
         department.setDeptName(txt_ndeptname.getText());
         department.setLocation(txt_deptloc.getText());
         courseEnrollmentManager.addDepartment(department);
-        System.out.println("Department has been added !");
+        System.out.println("Department has been added.");
         
     }//GEN-LAST:event_btn_deptcreateActionPerformed
 
     private void btn_deptupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deptupdateActionPerformed
-        // TODO add your handling code here:
-        Department department = new Department();
-        if(department.getDeptID() == txt_ndepartment.toString()){
-            department.setDeptName(txt_ndeptname.toString());
-            department.setLocation(txt_deptloc.toString());
-        }
+        // TODO add your handling code here
+        Department oldDept= new Department();
+        oldDept = courseEnrollmentManager.findDepartmentByDepartmentID(txt_ndepartment.getText());
+        
+        Department newDept = new Department();
+        newDept.setDeptID(txt_ndepartment.getText());
+        newDept.setDeptName(txt_ndeptname.getText());
+        newDept.setLocation(txt_deptloc.getText());
+
+        courseEnrollmentManager.updateDepartment(oldDept, newDept);
+        System.out.println("Department has been updated.");
+        
     }//GEN-LAST:event_btn_deptupdateActionPerformed
 
     private void btn_deptdeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deptdeleteActionPerformed
         // TODO add your handling code here:
         Department department = new Department();
-        if(department.getDeptID() == txt_ndepartment.toString()){
-            txt_ndepartment.remove(this);
-        }
-        if(department.getDeptName()== txt_ndeptname.toString()){
-            txt_ndeptname.remove(this);
-        }
-        if(department.getLocation()== txt_deptloc.toString()){
-            txt_deptloc.remove(this);
-        }
+        department = courseEnrollmentManager.findDepartmentByDepartmentID(txt_ndepartment.getText());
+        
+        courseEnrollmentManager.deleteDepartment(department);
+        System.out.println("Department has been deleted.");
     }//GEN-LAST:event_btn_deptdeleteActionPerformed
 
 
@@ -193,6 +212,7 @@ public class Department_Panel extends javax.swing.JPanel {
     private javax.swing.JButton btn_deptdelete;
     private javax.swing.JButton btn_deptupdate;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbl_deptloc;
     private javax.swing.JLabel lbl_ndepartment;

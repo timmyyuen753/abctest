@@ -13,6 +13,9 @@ import edu.cityu.ces.SpringMongoConfiguration;
 import edu.cityu.ces.dao.CourseRepository;
 import edu.cityu.ces.manager.CourseEnrollmentManager;
 import edu.cityu.ces.domain.Course;
+import edu.cityu.ces.domain.Enrolled;
+import edu.cityu.ces.domain.Student;
+import java.util.List;
 
 /**
  *
@@ -43,8 +46,6 @@ public class Search_Panel extends javax.swing.JPanel {
         lbl_searchcourse = new javax.swing.JLabel();
         lbl_searchdeptid = new javax.swing.JLabel();
         lbl_searchyear = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        listinfo = new javax.swing.JList<>();
         btn_search = new javax.swing.JButton();
         lbl_searchpop = new javax.swing.JLabel();
         btn_list = new javax.swing.JButton();
@@ -59,39 +60,49 @@ public class Search_Panel extends javax.swing.JPanel {
         setName(""); // NOI18N
         setPreferredSize(new java.awt.Dimension(720, 480));
 
+        lbl_searchstdname.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         lbl_searchstdname.setText("Student name:");
         lbl_searchstdname.setName("lbl_searchstdname"); // NOI18N
 
+        lbl_searchstdid.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         lbl_searchstdid.setText("Student ID:");
         lbl_searchstdid.setName("lbl_searchstdid"); // NOI18N
 
+        lbl_searchcourse.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         lbl_searchcourse.setText("Course Title:");
         lbl_searchcourse.setName("lbl_searchcourse"); // NOI18N
 
+        lbl_searchdeptid.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         lbl_searchdeptid.setText("Department ID:");
         lbl_searchdeptid.setName("lbl_searchdeptid"); // NOI18N
 
+        lbl_searchyear.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         lbl_searchyear.setText("Year:");
         lbl_searchyear.setName("lbl_searchyear"); // NOI18N
 
-        listinfo.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        listinfo.setName("listinfo"); // NOI18N
-        jScrollPane1.setViewportView(listinfo);
-
+        btn_search.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btn_search.setText("Search");
         btn_search.setName("btn_search"); // NOI18N
+        btn_search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_searchActionPerformed(evt);
+            }
+        });
 
+        lbl_searchpop.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         lbl_searchpop.setText("Popular:");
         lbl_searchpop.setName("lbl_searchpop"); // NOI18N
 
+        btn_list.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btn_list.setText("List");
         btn_list.setName("btn_list"); // NOI18N
+        btn_list.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_listActionPerformed(evt);
+            }
+        });
 
-        cbox_searchdeptid.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbox_searchdeptid.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CS", "IS" }));
         cbox_searchdeptid.setName("cbox_searchdeptid"); // NOI18N
 
         cbox_searchcourse.setName("cbox_searchcourse"); // NOI18N
@@ -101,6 +112,7 @@ public class Search_Panel extends javax.swing.JPanel {
             }
         });
 
+        rbtn_searchpop.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         rbtn_searchpop.setText("Yes");
         rbtn_searchpop.setName("rbtn_searchpop"); // NOI18N
 
@@ -118,9 +130,6 @@ public class Search_Panel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbl_searchcourse)
@@ -140,7 +149,7 @@ public class Search_Panel extends javax.swing.JPanel {
                                 .addComponent(lbl_searchstdid)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txt_searchstdid, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                                 .addComponent(lbl_searchyear)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(cbox_searchyear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -182,9 +191,7 @@ public class Search_Panel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_search)
                     .addComponent(btn_list))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(359, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -193,22 +200,46 @@ public class Search_Panel extends javax.swing.JPanel {
         Course course = courseEnrollmentManager.findCourseByCourseID("ACCT201");
         course.getTitle();
     }//GEN-LAST:event_cbox_searchcourseActionPerformed
-
     
+    private void btn_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_searchActionPerformed
+        // TODO add your handling code here:
+        // Find the titles of courses offered by the CS department in 2016.
+        String DeptmentID = (String)cbox_searchdeptid.getSelectedItem();
+        List<Course> courseinfo = courseEnrollmentManager.findCourseByDepartmentID(DeptmentID);
+        int i = 0;
+        for (Course course : courseinfo){
+            System.out.println(i + "- Department ID: "+ course.getDeptID() + "- Course Title: " + course.getTitle());
+            i++;
+        }
+    }//GEN-LAST:event_btn_searchActionPerformed
+
+    private void btn_listActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_listActionPerformed
+        // TODO add your handling code here:
+        //List the information of courses offered by the CS or IS departments in 2016.
+        String DeptmentID = (String)cbox_searchdeptid.getSelectedItem();
+        List<Course> courseinfo = courseEnrollmentManager.findCourseByDepartmentID(DeptmentID);
+        int i = 0;
+        for (Course course : courseinfo){
+            System.out.println(i + "- Department ID: "+ course.getDeptID() + "- course ID: " + course.getCourseID() + "- Course Title: " + course.getTitle() + "- Course Level: " + course.getLevel());
+            i++;
+        }
+
+        
+    }//GEN-LAST:event_btn_listActionPerformed
+
+        
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_list;
     private javax.swing.JButton btn_search;
     private javax.swing.JComboBox<String> cbox_searchcourse;
     private javax.swing.JComboBox<String> cbox_searchdeptid;
     private javax.swing.JComboBox<String> cbox_searchyear;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_searchcourse;
     private javax.swing.JLabel lbl_searchdeptid;
     private javax.swing.JLabel lbl_searchpop;
     private javax.swing.JLabel lbl_searchstdid;
     private javax.swing.JLabel lbl_searchstdname;
     private javax.swing.JLabel lbl_searchyear;
-    private javax.swing.JList<String> listinfo;
     private javax.swing.JRadioButton rbtn_searchpop;
     private javax.swing.JTextField txt_searchstdid;
     private javax.swing.JTextField txt_searchstdname;
