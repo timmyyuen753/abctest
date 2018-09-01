@@ -9,7 +9,11 @@ import edu.cityu.ces.domain.Course;
 @Repository
 public interface CourseRepositoryCustom {
 	
+	public List<Course> findCourseByMultipleDepartmentIDAndYear(List<String> deptIDList, String offerYear);
+	
+	public int getMaxNumOfEnrolledStudents(String offerYear);
+	
 	public List<Course> getTotalStudentByDeptIdAndOfferYear(String deptID, String offerYear);
 	
-	public List<Course> findCourseByMultipleDepartmentIDAndYear(List<String> deptIDList, String offerYear);
+	
 }

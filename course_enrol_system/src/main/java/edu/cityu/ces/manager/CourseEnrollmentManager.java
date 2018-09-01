@@ -37,13 +37,16 @@ public interface CourseEnrollmentManager {
 	public List<Course> findCourseByLevel(String level);
 	
 	//Query a
-	public List<Course> findCourseByDepartmentIDAndYear(String departmentID, String year);
+	public List<Course> findCourseByDepartmentIDAndYear(String departmentID, String offerYear);
 	
 	//Query b
-	public List<Course> findCourseByMultipleDepartmentIDAndYear(List<String> departmentIDList, String year);
+	public List<Course> findCourseByMultipleDepartmentIDAndYear(List<String> departmentIDList, String offerYear);
+	
+	//Query c
+	public List<Course> findMostPopularCourseByOfferYear(String offerYear);
 	
 	//Query d
-	public List<Course> findNumberOfStudentsByDeptIdAndOfferYear(String deptID, String offerYear);
+	public List<Course> findNumberOfStudentsByDeptIdAndOfferYear(String departmentID, String offerYear);
 	
 	public int generateNewStudentID();
 	

@@ -19,4 +19,7 @@ public interface CourseRepository extends MongoRepository<Course, String>, Cours
 	
 	@Query("{ 'deptID' : ?0, 'offer.year': ?1}")
 	public List<Course> findByDeptIdAndOfferYear(String deptID, String offerYear);
+	
+	@Query("{'offer': {$elemMatch: {'year': ?0, 'numOfEnrolStud': ?1}}}")
+	public List<Course> findByOfferYearAndNumOfEnrolStud(String offerYear, int numOfEnrolStud);
 }

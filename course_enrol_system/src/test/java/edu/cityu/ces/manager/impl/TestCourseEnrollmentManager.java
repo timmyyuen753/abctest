@@ -134,23 +134,13 @@ public class TestCourseEnrollmentManager {
 	
 	@Test
 	public void tesFindMostPopularCourses2016() {
-		List<Course> courseList = courseEnrollmentManager.listAllCourses();
-		int max = 0;
-		Course mostPopularCourse  = new Course();
-		for (Course course : courseList) {
-			List<Offer> offerList = course.getOffer();
-			for (Offer offer : offerList) {
-				if (offer.getYear().equals("2016")) {
-					if (offer.getNumOfEnrolStud() > max) {
-						max = offer.getNumOfEnrolStud();
-						mostPopularCourse = course;
-					}
-				}
-			}
-		}
+		//Query c
+		String year = "2016";
+		List<Course> courseList = courseEnrollmentManager.findMostPopularCourseByOfferYear(year);
 		
-		System.out.println("Most Popular Course in 2016: " + mostPopularCourse.toString());
-		System.out.println("Number of Enrolled Students: " + max);
+		for (Course course : courseList) {
+			System.out.println("Most Popular Course in 2016: " + course.toString());
+		}
 	}
 	
 	@Test

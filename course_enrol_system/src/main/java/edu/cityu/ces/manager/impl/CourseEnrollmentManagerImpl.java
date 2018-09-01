@@ -198,17 +198,23 @@ public class CourseEnrollmentManagerImpl implements CourseEnrollmentManager {
 	}
 
 	@Override
-	public List<Course> findCourseByDepartmentIDAndYear(String departmentID, String year) {
-		return courseRepository.findByDeptIdAndOfferYear(departmentID, year);
+	public List<Course> findCourseByDepartmentIDAndYear(String departmentID, String offerYear) {
+		return courseRepository.findByDeptIdAndOfferYear(departmentID, offerYear);
 	}
 
 	@Override
-	public List<Course> findNumberOfStudentsByDeptIdAndOfferYear(String departmentID, String year) {
-		return courseRepository.getTotalStudentByDeptIdAndOfferYear(departmentID, year);
+	public List<Course> findNumberOfStudentsByDeptIdAndOfferYear(String departmentID, String offerYear) {
+		return courseRepository.getTotalStudentByDeptIdAndOfferYear(departmentID, offerYear);
 	}
 	
 	@Override
-	public List<Course> findCourseByMultipleDepartmentIDAndYear(List<String> departmentIDList, String year) {
-		return courseRepository.findCourseByMultipleDepartmentIDAndYear(departmentIDList, year);
+	public List<Course> findCourseByMultipleDepartmentIDAndYear(List<String> departmentIDList, String offerYear) {
+		return courseRepository.findCourseByMultipleDepartmentIDAndYear(departmentIDList, offerYear);
+	}
+
+	@Override
+	public List<Course> findMostPopularCourseByOfferYear(String offerYear) {
+		int maxNumOfEnrolStudent = courseRepository.getMaxNumOfEnrolledStudents(offerYear);
+		return courseRepository.findByOfferYearAndNumOfEnrolStud(offerYear, maxNumOfEnrolStudent);
 	}
 }
