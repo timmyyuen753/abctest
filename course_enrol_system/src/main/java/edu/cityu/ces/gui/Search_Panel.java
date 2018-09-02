@@ -14,7 +14,10 @@ import edu.cityu.ces.dao.CourseRepository;
 import edu.cityu.ces.manager.CourseEnrollmentManager;
 import edu.cityu.ces.domain.Course;
 import edu.cityu.ces.domain.Enrolled;
+import edu.cityu.ces.domain.Offer;
 import edu.cityu.ces.domain.Student;
+import java.awt.event.ItemEvent;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -41,57 +44,158 @@ public class Search_Panel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
+        cbox_afinddeptid = new javax.swing.JComboBox<>();
+        lbl_afindyear = new javax.swing.JLabel();
+        cbox_afindyear = new javax.swing.JComboBox<>();
+        btn_searcha = new javax.swing.JButton();
+        lbl_b = new javax.swing.JLabel();
+        lbl_searchdeptid3 = new javax.swing.JLabel();
+        txt_DeptID10 = new javax.swing.JTextField();
+        btn_list1 = new javax.swing.JButton();
+        cbox_searchyear3 = new javax.swing.JComboBox<>();
+        lbl_c = new javax.swing.JLabel();
+        lbl_searchyear3 = new javax.swing.JLabel();
+        btn_search2 = new javax.swing.JButton();
+        lbl_searchdeptid1 = new javax.swing.JLabel();
+        cbox_searchdeptid1 = new javax.swing.JComboBox<>();
+        lbl_searchyear1 = new javax.swing.JLabel();
+        cbox_searchyear1 = new javax.swing.JComboBox<>();
+        lbl_d = new javax.swing.JLabel();
+        btn_list2 = new javax.swing.JButton();
         lbl_searchstdname = new javax.swing.JLabel();
-        lbl_searchstdid = new javax.swing.JLabel();
-        lbl_searchcourse = new javax.swing.JLabel();
-        lbl_searchdeptid = new javax.swing.JLabel();
-        lbl_searchyear = new javax.swing.JLabel();
-        btn_search = new javax.swing.JButton();
-        lbl_searchpop = new javax.swing.JLabel();
-        btn_list = new javax.swing.JButton();
-        cbox_searchdeptid = new javax.swing.JComboBox<>();
-        cbox_searchcourse = new javax.swing.JComboBox<>();
-        rbtn_searchpop = new javax.swing.JRadioButton();
         txt_searchstdname = new javax.swing.JTextField();
-        txt_searchstdid = new javax.swing.JTextField();
-        cbox_searchyear = new javax.swing.JComboBox<>();
+        lbl_searchdeptid2 = new javax.swing.JLabel();
+        cbox_searchdeptid2 = new javax.swing.JComboBox<>();
+        lbl_searchyear2 = new javax.swing.JLabel();
+        cbox_searchyear2 = new javax.swing.JComboBox<>();
+        btn_list = new javax.swing.JButton();
+        lbl_e = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        textarea = new javax.swing.JTextArea();
+        lbl_a = new javax.swing.JLabel();
+        cbox_searchyear4 = new javax.swing.JComboBox<>();
+        lbl_searchyear4 = new javax.swing.JLabel();
+        lbl_afinddeptid = new javax.swing.JLabel();
 
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMaximumSize(null);
         setName(""); // NOI18N
-        setPreferredSize(new java.awt.Dimension(720, 480));
+
+        jScrollPane2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jScrollPane2.setMaximumSize(null);
+        jScrollPane2.setMinimumSize(null);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        cbox_afinddeptid.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CS", "IS" }));
+        cbox_afinddeptid.setName("cbox_afinddeptid"); // NOI18N
+
+        lbl_afindyear.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lbl_afindyear.setText("Year:");
+        lbl_afindyear.setName("lbl_afindyear"); // NOI18N
+
+        cbox_afindyear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2016", "2017", "2018" }));
+        cbox_afindyear.setName("cbox_afindyear"); // NOI18N
+
+        btn_searcha.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btn_searcha.setText("Find");
+        btn_searcha.setName("btn_searcha"); // NOI18N
+        btn_searcha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_searchaActionPerformed(evt);
+            }
+        });
+
+        lbl_b.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lbl_b.setText("List the information of courses by all Department");
+        lbl_b.setName("lbl_b"); // NOI18N
+
+        lbl_searchdeptid3.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lbl_searchdeptid3.setText("Department ID:");
+        lbl_searchdeptid3.setName("lbl_searchdeptid"); // NOI18N
+
+        txt_DeptID10.setName("txt_DeptID10"); // NOI18N
+
+        btn_list1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btn_list1.setText("List");
+        btn_list1.setName("btn_list"); // NOI18N
+        btn_list1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_list1ActionPerformed(evt);
+            }
+        });
+
+        cbox_searchyear3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2016", "2017", "2018" }));
+        cbox_searchyear3.setName("cbox_searchyear"); // NOI18N
+
+        lbl_c.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lbl_c.setText("Find the Popular Course");
+        lbl_c.setName("lbl_c"); // NOI18N
+
+        lbl_searchyear3.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lbl_searchyear3.setText("Year:");
+        lbl_searchyear3.setName("lbl_searchyear"); // NOI18N
+
+        btn_search2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btn_search2.setText("Find");
+        btn_search2.setName("btn_search"); // NOI18N
+        btn_search2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_search2ActionPerformed(evt);
+            }
+        });
+
+        lbl_searchdeptid1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lbl_searchdeptid1.setText("Department ID:");
+        lbl_searchdeptid1.setName("lbl_searchdeptid"); // NOI18N
+
+        cbox_searchdeptid1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CS", "IS" }));
+        cbox_searchdeptid1.setName("cbox_searchdeptid"); // NOI18N
+
+        lbl_searchyear1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lbl_searchyear1.setText("Year:");
+        lbl_searchyear1.setName("lbl_searchyear"); // NOI18N
+
+        cbox_searchyear1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2016", "2017", "2018" }));
+        cbox_searchyear1.setName("cbox_searchyear"); // NOI18N
+
+        lbl_d.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lbl_d.setText("List the numbers of students for each course");
+        lbl_d.setName("lbl_d"); // NOI18N
+
+        btn_list2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btn_list2.setText("List");
+        btn_list2.setName("btn_list"); // NOI18N
+        btn_list2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_list2ActionPerformed(evt);
+            }
+        });
 
         lbl_searchstdname.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         lbl_searchstdname.setText("Student name:");
         lbl_searchstdname.setName("lbl_searchstdname"); // NOI18N
 
-        lbl_searchstdid.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        lbl_searchstdid.setText("Student ID:");
-        lbl_searchstdid.setName("lbl_searchstdid"); // NOI18N
+        txt_searchstdname.setName("txt_searchstdname"); // NOI18N
 
-        lbl_searchcourse.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        lbl_searchcourse.setText("Course Title:");
-        lbl_searchcourse.setName("lbl_searchcourse"); // NOI18N
+        lbl_searchdeptid2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lbl_searchdeptid2.setText("Department ID:");
+        lbl_searchdeptid2.setName("lbl_searchdeptid"); // NOI18N
 
-        lbl_searchdeptid.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        lbl_searchdeptid.setText("Department ID:");
-        lbl_searchdeptid.setName("lbl_searchdeptid"); // NOI18N
+        cbox_searchdeptid2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CS", "IS" }));
+        cbox_searchdeptid2.setName("cbox_searchdeptid"); // NOI18N
 
-        lbl_searchyear.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        lbl_searchyear.setText("Year:");
-        lbl_searchyear.setName("lbl_searchyear"); // NOI18N
+        lbl_searchyear2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lbl_searchyear2.setText("Year:");
+        lbl_searchyear2.setName("lbl_searchyear"); // NOI18N
 
-        btn_search.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btn_search.setText("Search");
-        btn_search.setName("btn_search"); // NOI18N
-        btn_search.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_searchActionPerformed(evt);
-            }
-        });
-
-        lbl_searchpop.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        lbl_searchpop.setText("Popular:");
-        lbl_searchpop.setName("lbl_searchpop"); // NOI18N
+        cbox_searchyear2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2016", "2017", "2018" }));
+        cbox_searchyear2.setName("cbox_searchyear"); // NOI18N
 
         btn_list.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btn_list.setText("List");
@@ -102,26 +206,159 @@ public class Search_Panel extends javax.swing.JPanel {
             }
         });
 
-        cbox_searchdeptid.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CS", "IS" }));
-        cbox_searchdeptid.setName("cbox_searchdeptid"); // NOI18N
+        lbl_e.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lbl_e.setText("List the courses offered by Department & Student");
+        lbl_e.setName("lbl_e"); // NOI18N
 
-        cbox_searchcourse.setName("cbox_searchcourse"); // NOI18N
-        cbox_searchcourse.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbox_searchcourseActionPerformed(evt);
-            }
-        });
+        textarea.setColumns(20);
+        textarea.setRows(5);
+        textarea.setName("textarea"); // NOI18N
+        jScrollPane1.setViewportView(textarea);
 
-        rbtn_searchpop.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        rbtn_searchpop.setText("Yes");
-        rbtn_searchpop.setName("rbtn_searchpop"); // NOI18N
+        lbl_a.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lbl_a.setText("Find the titles of courses by Department");
+        lbl_a.setName("lbl_a"); // NOI18N
 
-        txt_searchstdname.setName("txt_searchstdname"); // NOI18N
+        cbox_searchyear4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2016", "2017", "2018" }));
+        cbox_searchyear4.setName("cbox_searchyear"); // NOI18N
 
-        txt_searchstdid.setName("txt_searchstdid"); // NOI18N
+        lbl_searchyear4.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lbl_searchyear4.setText("Year:");
+        lbl_searchyear4.setName("lbl_searchyear"); // NOI18N
 
-        cbox_searchyear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2016", "2017", "2018" }));
-        cbox_searchyear.setName("cbox_searchyear"); // NOI18N
+        lbl_afinddeptid.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lbl_afinddeptid.setText("Department ID:");
+        lbl_afinddeptid.setName("lbl_afinddeptid"); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btn_searcha)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lbl_c)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lbl_a)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(lbl_afinddeptid)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(cbox_afinddeptid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(lbl_afindyear)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(cbox_afindyear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(lbl_searchyear3)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(cbox_searchyear3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(btn_search2))
+                                    .addGap(23, 23, 23)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btn_list2)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(lbl_searchdeptid1)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(cbox_searchdeptid1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(lbl_searchyear1)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(cbox_searchyear1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(lbl_b)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(lbl_searchdeptid3)
+                                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                                        .addComponent(btn_list1)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(lbl_searchyear4)))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(cbox_searchyear4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(txt_DeptID10)))
+                                            .addComponent(lbl_d))))
+                                .addComponent(lbl_e)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(lbl_searchstdname, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txt_searchstdname, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(lbl_searchdeptid2)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(cbox_searchdeptid2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(lbl_searchyear2)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(cbox_searchyear2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btn_list)))))
+                .addContainerGap(528, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_a)
+                    .addComponent(lbl_b))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_afinddeptid)
+                    .addComponent(cbox_afinddeptid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_afindyear)
+                    .addComponent(cbox_afindyear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_searchdeptid3)
+                    .addComponent(txt_DeptID10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_searcha)
+                    .addComponent(cbox_searchyear4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_searchyear4)
+                    .addComponent(btn_list1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_c)
+                    .addComponent(lbl_d))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_searchyear3)
+                    .addComponent(cbox_searchyear3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_searchdeptid1)
+                    .addComponent(cbox_searchdeptid1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_searchyear1)
+                    .addComponent(cbox_searchyear1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_search2)
+                    .addComponent(btn_list2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_e, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_searchstdname, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_searchstdname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_searchdeptid2)
+                    .addComponent(cbox_searchdeptid2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_searchyear2)
+                    .addComponent(cbox_searchyear2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_list)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(189, 189, 189))
+        );
+
+        jScrollPane2.setViewportView(jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -129,119 +366,135 @@ public class Search_Panel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbl_searchcourse)
-                            .addComponent(lbl_searchstdname))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbox_searchcourse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_searchstdname, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(48, 48, 48)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbl_searchdeptid)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbox_searchdeptid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbl_searchstdid)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txt_searchstdid, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
-                                .addComponent(lbl_searchyear)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbox_searchyear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(93, 93, 93))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btn_search)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_list))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbl_searchpop)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(rbtn_searchpop)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 884, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_searchstdname)
-                    .addComponent(lbl_searchstdid)
-                    .addComponent(lbl_searchyear)
-                    .addComponent(txt_searchstdname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_searchstdid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbox_searchyear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_searchcourse)
-                    .addComponent(lbl_searchdeptid)
-                    .addComponent(cbox_searchdeptid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbox_searchcourse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_searchpop)
-                    .addComponent(rbtn_searchpop))
-                .addGap(9, 9, 9)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_search)
-                    .addComponent(btn_list))
-                .addContainerGap(359, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cbox_searchcourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbox_searchcourseActionPerformed
-        // TODO add your handling code here:
-        Course course = courseEnrollmentManager.findCourseByCourseID("ACCT201");
-        course.getTitle();
-    }//GEN-LAST:event_cbox_searchcourseActionPerformed
-    
-    private void btn_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_searchActionPerformed
-        // TODO add your handling code here:
-        // Find the titles of courses offered by the CS department in 2016.
-        String DeptmentID = (String)cbox_searchdeptid.getSelectedItem();
-        List<Course> courseinfo = courseEnrollmentManager.findCourseByDepartmentID(DeptmentID);
-        int i = 0;
-        for (Course course : courseinfo){
-            System.out.println(i + "- Department ID: "+ course.getDeptID() + "- Course Title: " + course.getTitle());
-            i++;
-        }
-    }//GEN-LAST:event_btn_searchActionPerformed
-
     private void btn_listActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_listActionPerformed
         // TODO add your handling code here:
-        //List the information of courses offered by the CS or IS departments in 2016.
-        String DeptmentID = (String)cbox_searchdeptid.getSelectedItem();
-        List<Course> courseinfo = courseEnrollmentManager.findCourseByDepartmentID(DeptmentID);
-        int i = 0;
-        for (Course course : courseinfo){
-            System.out.println(i + "- Department ID: "+ course.getDeptID() + "- course ID: " + course.getCourseID() + "- Course Title: " + course.getTitle() + "- Course Level: " + course.getLevel());
-            i++;
+        String studentName = txt_searchstdname.getText();
+        String enrollYear = (String) cbox_searchyear2.getSelectedItem();
+        String departmentID = (String) cbox_searchdeptid2.getSelectedItem();
+        List<Course> courseList = courseEnrollmentManager.findCourseByStudentNameEnrollYearDepartmentID(studentName, enrollYear, departmentID);
+        for (Course course : courseList) {
+            String order = "Course: " + course.toString();
+            System.out.println("Course: " + course.toString());
+            textarea.append(order + "\n ");
         }
-
-        
     }//GEN-LAST:event_btn_listActionPerformed
 
+    private void btn_list2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_list2ActionPerformed
+        // TODO add your handling code here:
+        String departmentID = (String)cbox_searchdeptid1.getSelectedItem();
+        String year = (String)cbox_searchyear1.getSelectedItem();
+        List<Course> courseList = courseEnrollmentManager.findNumberOfStudentsByDeptIdAndOfferYear(departmentID, year);
+        for (Course course: courseList) {
+            String order = "Course: " + course.toString() + " Number of Enrooled Students: " + course.getOffer().get(0).getNumOfEnrolStud();
+            System.out.println(order);
+            textarea.append(order + "\n ");
+
+        }
+        //courseEnrollmentManager.findNumberOfStudentsByDeptIdAndOfferYear(deptID, offerYear);
+    }//GEN-LAST:event_btn_list2ActionPerformed
+
+    private void btn_search2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_search2ActionPerformed
+        // TODO add your handling code here:
+        String year = (String) cbox_searchyear3.getSelectedItem();
+        List<Course> courseList = courseEnrollmentManager.findMostPopularCourseByOfferYear(year);
+        for (Course course : courseList) {
+            String order = "Most Popular Course in 2016: " + course.toString();
+            System.out.println(order);
+            textarea.append(order + "\n ");
+        }
+    }//GEN-LAST:event_btn_search2ActionPerformed
+
+    private void btn_list1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_list1ActionPerformed
+        // TODO add your handling code here:
+        String[] countofa = {txt_DeptID10.getText()};
+        int arrayLength = countofa.length;
+        String a = txt_DeptID10.getText();
+        String[] a_result = a.split(", ");
+        for(int j = 0; j<=arrayLength; j++){
+            List<String> deptIDList = new ArrayList<String>();
+            deptIDList.add(a_result[j]);
+            String year = (String) cbox_searchyear4.getSelectedItem();
+            List<Course> courseList = courseEnrollmentManager.findCourseByMultipleDepartmentIDAndYear(deptIDList, year);
+            for (Course course : courseList) {
+                String order1 = "Course: " + course.toString();
+                System.out.println(order1);
+                for (Offer offer : course.getOffer()) {
+                    if (offer.getYear().equalsIgnoreCase(year)) {
+                        String order2 = "Offer: " + offer.toString();
+                        System.out.println(order2);
+                        textarea.append(order1 + "\n" + order2 + "\n ");
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_btn_list1ActionPerformed
+
+    private void btn_searchaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_searchaActionPerformed
+        // TODO add your handling code here:
+        String deptID = (String) cbox_afinddeptid.getSelectedItem();
+        String year = (String) cbox_afindyear.getSelectedItem();
+        List<Course> courseList = courseEnrollmentManager.findCourseByDepartmentIDAndYear(deptID, year);
+        for (Course course : courseList) {
+            System.out.println("Course: " + course.toString());
+            for (Offer offer : course.getOffer()) {
+                if (offer.getYear().equalsIgnoreCase(year)) {
+                    String order = "Offer: " + offer.toString();
+                    System.out.println(order);
+                    textarea.append(order + "\n ");
+                }
+            }
+        }
+    }//GEN-LAST:event_btn_searchaActionPerformed
+    
         
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_list;
-    private javax.swing.JButton btn_search;
-    private javax.swing.JComboBox<String> cbox_searchcourse;
-    private javax.swing.JComboBox<String> cbox_searchdeptid;
-    private javax.swing.JComboBox<String> cbox_searchyear;
-    private javax.swing.JLabel lbl_searchcourse;
-    private javax.swing.JLabel lbl_searchdeptid;
-    private javax.swing.JLabel lbl_searchpop;
-    private javax.swing.JLabel lbl_searchstdid;
+    private javax.swing.JButton btn_list1;
+    private javax.swing.JButton btn_list2;
+    private javax.swing.JButton btn_search2;
+    private javax.swing.JButton btn_searcha;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.JComboBox<String> cbox_afinddeptid;
+    private javax.swing.JComboBox<String> cbox_afindyear;
+    private javax.swing.JComboBox<String> cbox_searchdeptid1;
+    private javax.swing.JComboBox<String> cbox_searchdeptid2;
+    private javax.swing.JComboBox<String> cbox_searchyear1;
+    private javax.swing.JComboBox<String> cbox_searchyear2;
+    private javax.swing.JComboBox<String> cbox_searchyear3;
+    private javax.swing.JComboBox<String> cbox_searchyear4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lbl_a;
+    private javax.swing.JLabel lbl_afinddeptid;
+    private javax.swing.JLabel lbl_afindyear;
+    private javax.swing.JLabel lbl_b;
+    private javax.swing.JLabel lbl_c;
+    private javax.swing.JLabel lbl_d;
+    private javax.swing.JLabel lbl_e;
+    private javax.swing.JLabel lbl_searchdeptid1;
+    private javax.swing.JLabel lbl_searchdeptid2;
+    private javax.swing.JLabel lbl_searchdeptid3;
     private javax.swing.JLabel lbl_searchstdname;
-    private javax.swing.JLabel lbl_searchyear;
-    private javax.swing.JRadioButton rbtn_searchpop;
-    private javax.swing.JTextField txt_searchstdid;
+    private javax.swing.JLabel lbl_searchyear1;
+    private javax.swing.JLabel lbl_searchyear2;
+    private javax.swing.JLabel lbl_searchyear3;
+    private javax.swing.JLabel lbl_searchyear4;
+    private javax.swing.JTextArea textarea;
+    private javax.swing.JTextField txt_DeptID10;
     private javax.swing.JTextField txt_searchstdname;
     // End of variables declaration//GEN-END:variables
     

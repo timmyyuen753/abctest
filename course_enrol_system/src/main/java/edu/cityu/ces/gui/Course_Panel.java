@@ -11,6 +11,7 @@ import edu.cityu.ces.domain.Offer;
 import edu.cityu.ces.manager.CourseEnrollmentManager;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -62,6 +63,8 @@ public class Course_Panel extends javax.swing.JPanel {
         txt_coursebydeptid = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         btn_courseedit = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtarea_coursecols = new javax.swing.JTextArea();
 
         jLabel1.setText("jLabel1");
 
@@ -248,7 +251,7 @@ public class Course_Panel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lbl_avaplace)
                     .addComponent(txt_avaplace, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btn_coursedelete)
@@ -258,13 +261,20 @@ public class Course_Panel extends javax.swing.JPanel {
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)))
         );
 
+        txtarea_coursecols.setColumns(20);
+        txtarea_coursecols.setRows(5);
+        txtarea_coursecols.setName("txtarea_coursecols"); // NOI18N
+        jScrollPane1.setViewportView(txtarea_coursecols);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -272,7 +282,9 @@ public class Course_Panel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(64, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -304,7 +316,9 @@ public class Course_Panel extends javax.swing.JPanel {
                 
         
         courseEnrollmentManager.addCourse(course);
-        System.out.println("The course has been added");
+        String output = "The course has been added";
+        System.out.println(output);
+        txtarea_coursecols.setText(output);
         
     }//GEN-LAST:event_btn_crousecreateActionPerformed
 
@@ -313,8 +327,10 @@ public class Course_Panel extends javax.swing.JPanel {
         Course oldCourse = new Course();
         oldCourse = courseEnrollmentManager.findCourseByCourseID(txt_ncoruse_id.getText());
         
+        //Cannot change the course ID
         Course newCourse = new Course();
         newCourse.setDeptID(txt_coursebydeptid.getText());
+        newCourse.setCourseID(txt_ncoruse_id.getText());
         newCourse.setTitle(txt_ncrouse_title.getText());
         String courselevel = cbox_nlevel.getSelectedItem().toString();
         newCourse.setLevel(courselevel);
@@ -336,16 +352,24 @@ public class Course_Panel extends javax.swing.JPanel {
         i++;
         newCourse.setOffer(offerlist);
         courseEnrollmentManager.updateCourse(oldCourse, newCourse);
-        System.out.println("Course has been Updated.");
+        String output = "The course has been updated.";
+        System.out.println(output);
+        txtarea_coursecols.setText(output);
+        
     }//GEN-LAST:event_btn_courseupdateActionPerformed
 
     private void btn_coursedeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_coursedeleteActionPerformed
         // TODO add your handling code here:
+        int p = JOptionPane.showConfirmDialog(null, "Do you really want to delete?", "Delete", JOptionPane.YES_NO_OPTION);
+        if(p==0){
         Course course = new Course();
         course = courseEnrollmentManager.findCourseByCourseID(txt_ncoruse_id.getText());
         
         courseEnrollmentManager.deleteCourse(course);
-        System.out.println("Course has been deleted");
+        String output = "Course " + course.getCourseID() + " " + course.getTitle() + "has been deleted.";
+        System.out.println(output);
+        txtarea_coursecols.setText(output);
+        }
     }//GEN-LAST:event_btn_coursedeleteActionPerformed
 
     private void btn_courseeditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_courseeditActionPerformed
@@ -354,7 +378,9 @@ public class Course_Panel extends javax.swing.JPanel {
         course = courseEnrollmentManager.findCourseByCourseID(txt_ncoruse_id.getText());
         txt_ncrouse_title.setText(course.getTitle());
         txt_coursebydeptid.setText(course.getDeptID());
-        System.out.print(course.getOffer());
+        String output = "" + course.getOffer();
+        System.out.println(output);
+        txtarea_coursecols.setText(output);
     }//GEN-LAST:event_btn_courseeditActionPerformed
 
 
@@ -369,6 +395,7 @@ public class Course_Panel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_avaplace;
     private javax.swing.JLabel lbl_classsize;
     private javax.swing.JLabel lbl_course_ID;
@@ -383,6 +410,7 @@ public class Course_Panel extends javax.swing.JPanel {
     private javax.swing.JTextField txt_ncoruse_id;
     private javax.swing.JTextField txt_ncrouse_title;
     private javax.swing.JTextField txt_numofenrolstud;
+    private javax.swing.JTextArea txtarea_coursecols;
     // End of variables declaration//GEN-END:variables
     
     public CourseEnrollmentManager getCourseEnrollmentManager() {

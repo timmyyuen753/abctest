@@ -26,6 +26,7 @@ import org.springframework.stereotype.Component;
 import edu.cityu.ces.domain.Enrolled;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Timmy
@@ -69,6 +70,8 @@ public class Student_Panel extends javax.swing.JPanel {
         txt_regcourseid = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         btn_studEdit = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtarea_studentconls = new javax.swing.JTextArea();
 
         setBackground(new java.awt.Color(255, 204, 204));
         setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -171,6 +174,11 @@ public class Student_Panel extends javax.swing.JPanel {
             }
         });
 
+        txtarea_studentconls.setColumns(20);
+        txtarea_studentconls.setRows(5);
+        txtarea_studentconls.setName("txtarea_studentconls"); // NOI18N
+        jScrollPane1.setViewportView(txtarea_studentconls);
+
         javax.swing.GroupLayout newstudent_panelLayout = new javax.swing.GroupLayout(newstudent_panel);
         newstudent_panel.setLayout(newstudent_panelLayout);
         newstudent_panelLayout.setHorizontalGroup(
@@ -214,6 +222,7 @@ public class Student_Panel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addContainerGap())
+            .addComponent(jScrollPane1)
         );
         newstudent_panelLayout.setVerticalGroup(
             newstudent_panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,7 +256,9 @@ public class Student_Panel extends javax.swing.JPanel {
                             .addComponent(btn_delstud, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn_studEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel1))
-                .addGap(813, 813, 813))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(628, 628, 628))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -298,8 +309,9 @@ public class Student_Panel extends javax.swing.JPanel {
         i++;
         student.setEnrolled(enrolledlist);
         courseEnrollmentManager.addStudent(student);
-        
-        System.out.println("Student are added.");
+        String output = "Student are added.";
+        System.out.println(output);
+        txtarea_studentconls.setText(output);
         
         
     }//GEN-LAST:event_btn_addstudActionPerformed
@@ -340,29 +352,40 @@ public class Student_Panel extends javax.swing.JPanel {
         newStudent.setEnrolled(enrolledlist);
 
         courseEnrollmentManager.updateStudent(oldStudent, newStudent);
-        System.out.println("Student " + txt_studid.getText() + " are updated.");
+        String output = "Student " + txt_studid.getText() + " are updated.";
+        System.out.println(output);
+        txtarea_studentconls.setText(output);
+        
     }//GEN-LAST:event_btn_updatstudActionPerformed
 
     private void btn_delstudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_delstudActionPerformed
         // TODO add your handling code here:
+        int p = JOptionPane.showConfirmDialog(null, "Do you really want to delete?", "Delete", JOptionPane.YES_NO_OPTION);
+        if(p==0){
         Student student = new Student();
         String stuedntid = txt_studid.getText();
         int studentidnumber = Integer.parseInt(stuedntid);
         student = courseEnrollmentManager.findStudentByStudentID(studentidnumber);
         
         courseEnrollmentManager.deleteStudent(student);
-        System.out.println("StudentID: " + txt_studid.getText() + " are deleted");
+        
+        String output = "StudentID: " + txt_studid.getText() + " Student Name: " + student.getStuName() + " are deleted";
+        System.out.println(output);
+        txtarea_studentconls.setText(output);
+        }
     }//GEN-LAST:event_btn_delstudActionPerformed
 
     private void btn_studEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_studEditActionPerformed
         // TODO add your handling code here:
-        Student student = new Student();
+        Student student = new Student();    
         String stuedntid = txt_studid.getText();
         int studentidnumber = Integer.parseInt(stuedntid);
         student = courseEnrollmentManager.findStudentByStudentID(studentidnumber);
         txt_newstudname.setText(student.getStuName());
         txt_newstud_DOB.setText(student.getDob().toString());
-        System.out.print(student.getEnrolled());
+        String output = "" + student.getEnrolled();
+        System.out.print(output);
+        txtarea_studentconls.setText(output);
         
     }//GEN-LAST:event_btn_studEditActionPerformed
 
@@ -374,6 +397,7 @@ public class Student_Panel extends javax.swing.JPanel {
     private javax.swing.JButton btn_updatstud;
     private javax.swing.JComboBox<String> cbox_regyear;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_newstud_DOB;
     private javax.swing.JLabel lbl_newstudname;
     private javax.swing.JLabel lbl_regcourseid;
@@ -386,6 +410,7 @@ public class Student_Panel extends javax.swing.JPanel {
     private javax.swing.JTextField txt_regcourseid;
     private javax.swing.JTextField txt_regdate;
     private javax.swing.JTextField txt_studid;
+    private javax.swing.JTextArea txtarea_studentconls;
     // End of variables declaration//GEN-END:variables
     
     public CourseEnrollmentManager getCourseEnrollmentManager() {

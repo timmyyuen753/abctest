@@ -6,6 +6,7 @@
 package edu.cityu.ces.gui;
 import edu.cityu.ces.domain.Department;
 import edu.cityu.ces.manager.CourseEnrollmentManager;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -44,6 +45,8 @@ public class Department_Panel extends javax.swing.JPanel {
         btn_deptdelete = new javax.swing.JButton();
         btn_edit = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        textarea_deptconls = new javax.swing.JTextArea();
 
         setBackground(new java.awt.Color(204, 204, 255));
         setForeground(new java.awt.Color(204, 204, 255));
@@ -114,7 +117,7 @@ public class Department_Panel extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lbl_ndepartment)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -122,12 +125,12 @@ public class Department_Panel extends javax.swing.JPanel {
                         .addGap(47, 47, 47)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_ndeptname, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txt_ndeptname, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lbl_deptloc)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_deptloc, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(txt_deptloc)))
+                .addContainerGap(208, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(btn_deptcreate)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -161,6 +164,11 @@ public class Department_Panel extends javax.swing.JPanel {
 
         jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Timmy\\Desktop\\新增資料夾 (2)\\course_enrol_system\\src\\main\\java\\edu\\cityu\\ces\\gui\\image\\cityu.png")); // NOI18N
 
+        textarea_deptconls.setColumns(20);
+        textarea_deptconls.setRows(5);
+        textarea_deptconls.setName("textarea_deptconls"); // NOI18N
+        jScrollPane1.setViewportView(textarea_deptconls);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -168,6 +176,7 @@ public class Department_Panel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -181,7 +190,9 @@ public class Department_Panel extends javax.swing.JPanel {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addContainerGap(230, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -192,7 +203,9 @@ public class Department_Panel extends javax.swing.JPanel {
         department.setDeptName(txt_ndeptname.getText());
         department.setLocation(txt_deptloc.getText());
         courseEnrollmentManager.addDepartment(department);
-        System.out.println("Department has been added.");
+        String output = "Department has been create.";
+        System.out.println(output);
+        textarea_deptconls.setText(output);
         
     }//GEN-LAST:event_btn_deptcreateActionPerformed
 
@@ -207,17 +220,27 @@ public class Department_Panel extends javax.swing.JPanel {
         newDept.setLocation(txt_deptloc.getText());
 
         courseEnrollmentManager.updateDepartment(oldDept, newDept);
-        System.out.println("Department has been updated.");
+        
+        String output = "Department " + newDept.getDeptName() + " has been updated.";
+        System.out.println(output);
+        textarea_deptconls.setText(output);
+        
         
     }//GEN-LAST:event_btn_deptupdateActionPerformed
 
     private void btn_deptdeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deptdeleteActionPerformed
         // TODO add your handling code here:
+        int p = JOptionPane.showConfirmDialog(null, "Do you really want to delete?", "Delete", JOptionPane.YES_NO_OPTION);
+        if(p==0){
         Department department = new Department();
         department = courseEnrollmentManager.findDepartmentByDepartmentID(txt_ndepartment.getText());
         
         courseEnrollmentManager.deleteDepartment(department);
-        System.out.println("Department has been deleted.");
+        String output = "Department has been deleted.";
+        System.out.println(output);
+        textarea_deptconls.setText(output);
+        }
+        
     }//GEN-LAST:event_btn_deptdeleteActionPerformed
 
     private void btn_editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editActionPerformed
@@ -225,7 +248,7 @@ public class Department_Panel extends javax.swing.JPanel {
         Department department = new Department();
         department = courseEnrollmentManager.findDepartmentByDepartmentID(txt_ndepartment.getText());
         txt_ndeptname.setText(department.getDeptName());
-        txt_deptloc.setText(department.getLocation());
+        txt_deptloc.setText(department.getLocation());  
     }//GEN-LAST:event_btn_editActionPerformed
 
 
@@ -237,8 +260,10 @@ public class Department_Panel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_deptloc;
     private javax.swing.JLabel lbl_ndepartment;
+    private javax.swing.JTextArea textarea_deptconls;
     private javax.swing.JTextField txt_deptloc;
     private javax.swing.JTextField txt_ndepartment;
     private javax.swing.JTextField txt_ndeptname;
